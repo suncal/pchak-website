@@ -11,14 +11,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=5">
 <style>
 /* ---- home-only ---- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 #gridCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 110%,rgba(6,9,15,.94) 30%,rgba(6,9,15,.35) 70%,transparent);z-index:1;pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 110%,rgba(247,245,240,.94) 30%,rgba(247,245,240,.35) 70%,transparent);z-index:1;pointer-events:none}
 .hero-content{position:relative;z-index:2;padding-top:120px;padding-bottom:clamp(3rem,7vh,5.5rem)}
-.hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line);padding:.55rem 1.1rem;border-radius:99px;margin-bottom:2.2rem;background:rgba(6,9,15,.5);backdrop-filter:blur(6px)}
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line);padding:.55rem 1.1rem;border-radius:99px;margin-bottom:2.2rem;background:rgba(247,245,240,.65);backdrop-filter:blur(6px)}
 .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,54,45,.5)}50%{box-shadow:0 0 0 7px rgba(232,54,45,0)}}
 .hero h1{font-family:var(--font-d);font-size:clamp(2.7rem,7vw,6.2rem);line-height:.98;letter-spacing:-.03em;font-weight:600;max-width:16ch}
@@ -40,8 +40,8 @@
 .about-body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
 .about-body strong{color:var(--paper)}
 .prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(3rem,6vw,6rem);align-items:center}
-.prod-copy p{color:var(--mut-dark);margin-bottom:1.3rem;font-size:1.02rem;max-width:54ch}
-.prod-copy p strong{color:var(--ink)}
+.prod-copy p{color:var(--mut);margin-bottom:1.3rem;font-size:1.02rem;max-width:54ch}
+.prod-copy p strong{color:var(--paper)}
 .prod-visual{position:relative;aspect-ratio:.92;display:flex;align-items:center;justify-content:center}
 .prod-visual svg{width:100%;height:100%}
 .blueprint-label{font-family:var(--font-m);font-size:.6rem;letter-spacing:.14em;fill:rgba(6,9,15,.45);text-transform:uppercase}
@@ -404,7 +404,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=4"></script>
+<script src="assets/site.js?v=5"></script>
 <script>
 /* hero canvas */
 (function(){
@@ -423,7 +423,7 @@
   function frame(){
     t+=.004;
     ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle='rgba(245,243,238,.035)';ctx.lineWidth=1;
+    ctx.strokeStyle='rgba(11,15,23,.05)';ctx.lineWidth=1;
     const g=64;ctx.beginPath();
     for(let x=g;x<W;x+=g){ctx.moveTo(x,0);ctx.lineTo(x,H)}
     for(let y=g;y<H;y+=g){ctx.moveTo(0,y);ctx.lineTo(W,y)}
@@ -434,18 +434,18 @@
       gr.addColorStop(0,'rgba(232,54,45,.10)');gr.addColorStop(.08,'rgba(232,54,45,0)');gr.addColorStop(1,'rgba(232,54,45,0)');
       ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fill();
     }
-    ctx.strokeStyle='rgba(245,243,238,.05)';
+    ctx.strokeStyle='rgba(11,15,23,.07)';
     [R*.35,R*.65,R].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();});
     for(const p of pts){
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<0||p.x>W)p.vx*=-1;
       if(p.y<0||p.y>H)p.vy*=-1;
     }
-    ctx.fillStyle='rgba(245,243,238,.5)';
+    ctx.fillStyle='rgba(11,15,23,.45)';
     for(const p of pts){ctx.fillRect(p.x-.8,p.y-.8,1.6,1.6);}
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
-      if(d<9500){ctx.strokeStyle='rgba(245,243,238,'+(.09*(1-d/9500))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+      if(d<9500){ctx.strokeStyle='rgba(11,15,23,'+(.1*(1-d/9500))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
     }
     if(!reduce)requestAnimationFrame(frame);
   }

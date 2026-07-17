@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=5">
 <style>
 .quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
 .gate{display:grid;grid-template-columns:110px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);align-items:start}
 .gate:last-child{border-bottom:none}
-.gate .g-num{font-family:var(--font-d);font-weight:700;font-size:2.6rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(245,243,238,.25);transition:all .4s}
+.gate .g-num{font-family:var(--font-d);font-weight:700;font-size:2.6rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(11,15,23,.3);transition:all .4s}
 .gate:hover .g-num{color:var(--red);-webkit-text-stroke-color:var(--red)}
 .gate h3{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin-bottom:.5rem}
 .gate p{color:var(--mut);max-width:62ch}
@@ -71,14 +71,14 @@
   <div class="wrap quality-grid">
     <div class="q-ring rv" data-tilt>
       <svg viewBox="0 0 400 400" fill="none">
-        <circle cx="200" cy="200" r="192" stroke="rgba(245,243,238,.12)"/>
-        <circle cx="200" cy="200" r="160" stroke="rgba(245,243,238,.08)" stroke-dasharray="4 8"/>
+        <circle cx="200" cy="200" r="192" stroke="rgba(11,15,23,.16)"/>
+        <circle cx="200" cy="200" r="160" stroke="rgba(11,15,23,.1)" stroke-dasharray="4 8"/>
         <circle cx="200" cy="200" r="192" stroke="#E8362D" stroke-width="2" stroke-dasharray="90 1116" stroke-linecap="round"/>
-        <g fill="rgba(245,243,238,.4)" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
+        <g fill="rgba(11,15,23,.45)" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
           <text x="200" y="24" text-anchor="middle">QUALITY ASSURANCE</text>
           <text x="200" y="386" text-anchor="middle">TRUSTED DELIVERY</text>
         </g>
-        <g stroke="rgba(245,243,238,.25)"><path d="M200 8v14M200 378v14M8 200h14M378 200h14"/></g>
+        <g stroke="rgba(11,15,23,.3)"><path d="M200 8v14M200 378v14M8 200h14M378 200h14"/></g>
       </svg>
       <div class="q-center">
         <span class="mono">QA Doctrine</span>
@@ -190,6 +190,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=4"></script>
+<script src="assets/site.js?v=5"></script>
 </body>
 </html>
