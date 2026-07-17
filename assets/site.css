@@ -87,14 +87,16 @@ body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
 .preloader .pre-bar{width:min(300px,60vw);height:1px;background:var(--line);position:relative;overflow:hidden}
 .preloader .pre-bar span{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
 
-/* ---------- page transition wipe ---------- */
+/* ---------- page transition wipe ----------
+   Entry reveal is a pure CSS animation (starts at first paint — cannot
+   race or leave the page covered). JS only drives the exit (.out). */
 .wipe{position:fixed;inset:0;z-index:1500;pointer-events:none}
-.wipe i{position:absolute;inset:0;transform:scaleY(0)}
-.wipe i:nth-child(1){background:var(--red);transition:transform .5s var(--ease)}
-.wipe i:nth-child(2){background:var(--ink);transition:transform .5s var(--ease) .08s}
-.wipe.out i{transform-origin:bottom;transform:scaleY(1)}
-.wipe.in i{transform-origin:top;transform:scaleY(0)}
-.wipe.in-start i{transform-origin:top;transform:scaleY(1);transition:none}
+.wipe i{position:absolute;inset:0;transform:scaleY(0);transform-origin:top}
+.wipe i:nth-child(1){background:var(--red);animation:wipe-in .55s var(--ease) .06s both;transition:transform .5s var(--ease)}
+.wipe i:nth-child(2){background:var(--ink);animation:wipe-in .55s var(--ease) both;transition:transform .5s var(--ease) .08s}
+@keyframes wipe-in{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+.wipe.out i{animation:none;transform-origin:bottom;transform:scaleY(1)}
+@media (prefers-reduced-motion:reduce){.wipe i{animation:none}}
 
 /* ---------- utility ---------- */
 .wrap{width:min(1280px,92vw);margin:0 auto}

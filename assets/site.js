@@ -8,13 +8,9 @@ const fine = matchMedia('(pointer: fine)').matches;
 
 /* ---------- page transition wipe ---------- */
 const wipe = document.createElement('div');
-wipe.className = 'wipe in-start';
+wipe.className = 'wipe';
 wipe.innerHTML = '<i></i><i></i>';
 document.body.appendChild(wipe);
-requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  wipe.classList.remove('in-start');
-  wipe.classList.add('in');
-}));
 document.addEventListener('click', e=>{
   const a = e.target.closest('a');
   if(!a) return;
@@ -22,11 +18,10 @@ document.addEventListener('click', e=>{
   if(a.target === '_blank' || a.hasAttribute('download') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return;
   if(reduce) return;
   e.preventDefault();
-  wipe.classList.remove('in');
   wipe.classList.add('out');
   setTimeout(()=>{ location.href = href; }, 560);
 });
-window.addEventListener('pageshow', e=>{ if(e.persisted){ wipe.classList.remove('out'); wipe.classList.add('in'); } });
+window.addEventListener('pageshow', e=>{ if(e.persisted){ wipe.classList.remove('out'); } });
 
 /* ---------- custom cursor ---------- */
 if(fine && !reduce){
