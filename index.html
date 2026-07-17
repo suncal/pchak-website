@@ -4,114 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>P CHAK CONSULTING — Mission-Critical Technology & Engineering Solutions</title>
-<meta name="description" content="P CHAK CONSULTING delivers cybersecurity, IT modernization, defense technologies, aerospace engineering, and industrial fluid-control solutions to government and commercial clients. Johns Creek, Georgia.">
+<meta name="description" content="P CHAK CONSULTING LLC delivers cybersecurity, IT modernization, defense technologies, aerospace engineering, and industrial fluid-control solutions to government and commercial clients nationwide. UEI MRNLCHP6N8V5 · CAGE 9NWB7.">
+<meta property="og:title" content="P CHAK CONSULTING — Mission-Critical Solutions, Engineered to Perform">
+<meta property="og:description" content="Federal & commercial technology, engineering, and supply solutions. DLA past performance. SAM.gov active.">
+<link rel="icon" type="image/png" href="assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-/* ============================================================
-   P CHAK CONSULTING — Design System
-   "Mission Control" — precision engineering aesthetic
-   ============================================================ */
-:root{
-  --ink:        #06090F;
-  --ink-2:      #0B111C;
-  --ink-3:      #101827;
-  --paper:      #F5F3EE;
-  --paper-2:    #ECE9E1;
-  --white:      #FFFFFF;
-  --red:        #E8362D;
-  --red-dim:    rgba(232,54,45,.14);
-  --blue:       #3D63C9;
-  --line:       rgba(245,243,238,.09);
-  --line-dark:  rgba(6,9,15,.1);
-  --mut:        rgba(245,243,238,.55);
-  --mut-dark:   rgba(6,9,15,.55);
-  --font-d: 'Space Grotesk', sans-serif;
-  --font-b: 'Inter', sans-serif;
-  --font-m: 'IBM Plex Mono', monospace;
-  --ease: cubic-bezier(.22,1,.36,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--ink);
-  color:var(--paper);
-  font-family:var(--font-b);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-::selection{background:var(--red);color:var(--white)}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-
-/* ---------- utility ---------- */
-.wrap{width:min(1280px,92vw);margin:0 auto}
-.mono{font-family:var(--font-m);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
-.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;margin-bottom:4rem;flex-wrap:wrap}
-.section-head .kicker{display:flex;align-items:center;gap:.9rem;color:var(--red)}
-.kicker .tick{width:34px;height:1px;background:var(--red);display:inline-block}
-h2.title{
-  font-family:var(--font-d);
-  font-size:clamp(2.2rem,4.6vw,3.9rem);
-  line-height:1.04;
-  font-weight:600;
-  letter-spacing:-.02em;
-}
-h2.title em{font-style:normal;color:var(--red)}
-
-/* ---------- reveal choreography ---------- */
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
-.rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}.rv-d6{transition-delay:.48s}
-@media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  html{scroll-behavior:auto}
-}
-
-/* ============ NAV ============ */
-.nav{
-  position:fixed;inset:0 0 auto 0;z-index:100;
-  transition:background .4s,border-color .4s,transform .45s var(--ease);
-  border-bottom:1px solid transparent;
-}
-.nav.scrolled{background:rgba(6,9,15,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:var(--line)}
-.nav.hidden{transform:translateY(-100%)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:.8rem}
-.brand svg{width:38px;height:38px;flex:none}
-.brand-name{font-family:var(--font-d);font-weight:700;font-size:1.02rem;letter-spacing:.04em;line-height:1.1}
-.brand-sub{font-family:var(--font-m);font-size:.56rem;letter-spacing:.3em;color:var(--red);text-transform:uppercase;display:block;margin-top:2px}
-.nav-links{display:flex;gap:2.2rem;align-items:center}
-.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.06em;color:var(--mut);position:relative;padding:4px 0;transition:color .3s}
-.nav-links a:hover{color:var(--paper)}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--red);transition:width .35s var(--ease)}
-.nav-links a:hover::after{width:100%}
-.nav-cta{
-  font-family:var(--font-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-  padding:.75rem 1.4rem;border:1px solid rgba(245,243,238,.25);
-  transition:border-color .3s,background .3s,color .3s;
-}
-.nav-cta:hover{background:var(--red);border-color:var(--red);color:#fff}
-.burger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:110}
-.burger span{width:24px;height:2px;background:var(--paper);transition:transform .35s var(--ease),opacity .3s}
-.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{
-  position:fixed;inset:0;z-index:105;background:var(--ink);
-  display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:.4rem;
-  clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);
-}
-.mobile-menu.open{clip-path:inset(0)}
-.mobile-menu a{font-family:var(--font-d);font-size:clamp(1.8rem,7vw,2.6rem);font-weight:600;padding:.5rem 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.mobile-menu a .mono{color:var(--red)}
-
-/* ============ HERO ============ */
+/* ---- home-only ---- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 #gridCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 110%,rgba(6,9,15,.94) 30%,rgba(6,9,15,.35) 70%,transparent);z-index:1;pointer-events:none}
@@ -119,39 +21,12 @@ h2.title em{font-style:normal;color:var(--red)}
 .hero-tag{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line);padding:.55rem 1.1rem;border-radius:99px;margin-bottom:2.2rem;background:rgba(6,9,15,.5);backdrop-filter:blur(6px)}
 .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,54,45,.5)}50%{box-shadow:0 0 0 7px rgba(232,54,45,0)}}
-.hero h1{
-  font-family:var(--font-d);
-  font-size:clamp(2.7rem,7vw,6.2rem);
-  line-height:.98;letter-spacing:-.03em;font-weight:600;
-  max-width:16ch;
-}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.7rem,7vw,6.2rem);line-height:.98;letter-spacing:-.03em;font-weight:600;max-width:16ch}
 .hero h1 .accent{color:var(--red)}
-.hero h1 .line{display:block;overflow:hidden}
-.hero h1 .line span{display:inline-block;transform:translateY(110%);animation:rise 1.1s var(--ease) forwards}
-.hero h1 .line:nth-child(2) span{animation-delay:.12s}
-.hero h1 .line:nth-child(3) span{animation-delay:.24s}
-@keyframes rise{to{transform:none}}
 .hero-sub{max-width:52ch;color:var(--mut);font-size:clamp(1rem,1.4vw,1.15rem);margin:1.8rem 0 2.6rem;opacity:0;animation:fadeUp 1s var(--ease) .55s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 1s var(--ease) .7s forwards}
-.btn{
-  display:inline-flex;align-items:center;gap:.8rem;
-  font-family:var(--font-m);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:1.05rem 1.9rem;position:relative;overflow:hidden;transition:color .35s;
-}
-.btn .arr{transition:transform .35s var(--ease)}
-.btn:hover .arr{transform:translateX(5px)}
-.btn-solid{background:var(--red);color:#fff}
-.btn-solid::before{content:'';position:absolute;inset:0;background:var(--paper);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease);z-index:0}
-.btn-solid:hover::before{transform:scaleX(1);transform-origin:left}
-.btn-solid:hover{color:var(--ink)}
-.btn-solid span,.btn-solid svg{position:relative;z-index:1}
-.btn-ghost{border:1px solid rgba(245,243,238,.28)}
-.btn-ghost:hover{border-color:var(--paper);background:rgba(245,243,238,.06)}
-.hero-meta{
-  position:relative;z-index:2;border-top:1px solid var(--line);
-  opacity:0;animation:fadeUp 1s var(--ease) .9s forwards;
-}
+.hero-meta{position:relative;z-index:2;border-top:1px solid var(--line);opacity:0;animation:fadeUp 1s var(--ease) .9s forwards}
 .hero-meta-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
 .hm{padding:1.4rem 1.6rem 1.5rem;border-right:1px solid var(--line);position:relative}
 .hm:first-child{border-left:1px solid var(--line)}
@@ -159,290 +34,65 @@ h2.title em{font-style:normal;color:var(--red)}
 .hm strong{font-family:var(--font-d);font-size:1.05rem;font-weight:600;letter-spacing:.01em}
 .hero-coords{position:absolute;z-index:2;top:110px;right:4vw;text-align:right;color:var(--mut);display:flex;flex-direction:column;gap:.3rem;opacity:0;animation:fadeUp 1s var(--ease) 1.1s forwards}
 .hero-coords .mono{font-size:.62rem}
-
-/* ============ MARQUEE ============ */
-.marquee{border-block:1px solid var(--line);padding:1.3rem 0;overflow:hidden;background:var(--ink-2)}
-.marquee-track{display:flex;gap:3.5rem;width:max-content;animation:scroll 32s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.mq-item{display:flex;align-items:center;gap:3.5rem;font-family:var(--font-d);font-size:.95rem;font-weight:500;letter-spacing:.22em;color:var(--mut);white-space:nowrap}
-.mq-item .diamond{width:7px;height:7px;background:var(--red);transform:rotate(45deg);flex:none}
-
-/* ============ ABOUT ============ */
-.about{padding:clamp(6rem,12vh,9.5rem) 0;position:relative}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
-.about-statement{
-  font-family:var(--font-d);font-size:clamp(1.6rem,2.9vw,2.5rem);
-  line-height:1.28;font-weight:500;letter-spacing:-.015em;
-}
+.about-statement{font-family:var(--font-d);font-size:clamp(1.6rem,2.9vw,2.5rem);line-height:1.28;font-weight:500;letter-spacing:-.015em}
 .about-statement em{font-style:normal;color:var(--red)}
 .about-body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
-.about-body strong{color:var(--paper);font-weight:600}
-.values{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
-.value{background:var(--ink);padding:1.7rem 1.6rem;transition:background .4s}
-.value:hover{background:var(--ink-3)}
-.value .mono{color:var(--red);display:block;margin-bottom:.7rem}
-.value h4{font-family:var(--font-d);font-size:1.02rem;font-weight:600;margin-bottom:.4rem}
-.value p{font-size:.85rem;color:var(--mut);line-height:1.55}
-
-/* ============ STATS ============ */
-.stats{border-block:1px solid var(--line);background:var(--ink-2)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:3.2rem 2rem;border-right:1px solid var(--line);text-align:center;position:relative}
-.stat:last-child{border-right:none}
-.stat .num{font-family:var(--font-d);font-size:clamp(2.6rem,4.5vw,4rem);font-weight:600;letter-spacing:-.02em;line-height:1}
-.stat .num sup{font-size:.45em;color:var(--red);top:-.7em}
-.stat .lbl{margin-top:.7rem;color:var(--mut)}
-
-/* ============ CAPABILITIES ============ */
-.caps{padding:clamp(6rem,12vh,9.5rem) 0}
-.caps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.cap{
-  background:var(--ink);padding:2.2rem 1.8rem 2.4rem;position:relative;overflow:hidden;
-  transition:background .45s;min-height:320px;display:flex;flex-direction:column;
-}
-.cap::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(160deg,var(--red-dim),transparent 55%);
-  opacity:0;transition:opacity .45s;
-}
-.cap:hover{background:var(--ink-3)}
-.cap:hover::before{opacity:1}
-.cap .corner{position:absolute;top:14px;right:14px;width:18px;height:18px;border-top:1px solid rgba(245,243,238,.2);border-right:1px solid rgba(245,243,238,.2);transition:border-color .4s,transform .4s var(--ease)}
-.cap:hover .corner{border-color:var(--red);transform:translate(3px,-3px)}
-.cap .idx{font-family:var(--font-m);font-size:.68rem;color:var(--mut);letter-spacing:.15em}
-.cap .icon{width:44px;height:44px;margin:1.6rem 0 1.3rem;color:var(--red)}
-.cap .icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.3}
-.cap h3{font-family:var(--font-d);font-size:1.16rem;font-weight:600;margin-bottom:.65rem;letter-spacing:-.01em}
-.cap p{font-size:.86rem;color:var(--mut);line-height:1.6;flex:1}
-.cap .more{margin-top:1.4rem;font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.5rem;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s var(--ease)}
-.cap:hover .more{opacity:1;transform:none}
-
-/* ============ PRODUCTS (valves) ============ */
-.products{background:var(--paper);color:var(--ink);padding:clamp(6rem,12vh,9.5rem) 0;position:relative;overflow:hidden}
-.products .section-head .kicker{color:var(--red)}
-.products h2.title{color:var(--ink)}
+.about-body strong{color:var(--paper)}
 .prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(3rem,6vw,6rem);align-items:center}
 .prod-copy p{color:var(--mut-dark);margin-bottom:1.3rem;font-size:1.02rem;max-width:54ch}
 .prod-copy p strong{color:var(--ink)}
-.prod-feats{display:flex;flex-direction:column;margin-top:2.4rem;border-top:1px solid var(--line-dark)}
-.pf{display:flex;gap:1.4rem;align-items:baseline;padding:1.15rem 0;border-bottom:1px solid var(--line-dark);transition:padding-left .35s var(--ease)}
-.pf:hover{padding-left:.7rem}
-.pf .mono{color:var(--red);flex:none}
-.pf h4{font-family:var(--font-d);font-size:1rem;font-weight:600}
-.pf span{color:var(--mut-dark);font-size:.86rem;margin-left:auto;text-align:right}
 .prod-visual{position:relative;aspect-ratio:.92;display:flex;align-items:center;justify-content:center}
 .prod-visual svg{width:100%;height:100%}
 .blueprint-label{font-family:var(--font-m);font-size:.6rem;letter-spacing:.14em;fill:rgba(6,9,15,.45);text-transform:uppercase}
-
-/* ============ WHY ============ */
-.why{padding:clamp(6rem,12vh,9.5rem) 0;position:relative}
-.why-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.why-row{
-  display:grid;grid-template-columns:90px 1fr 1.2fr auto;gap:2rem;align-items:center;
-  padding:2.1rem 0;border-bottom:1px solid var(--line);position:relative;
-  transition:padding-left .4s var(--ease);
-}
-.why-row::before{content:'';position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--red-dim),transparent);transition:width .5s var(--ease);z-index:0}
-.why-row:hover::before{width:100%}
-.why-row:hover{padding-left:1.2rem}
-.why-row>*{position:relative;z-index:1}
-.why-row .mono{color:var(--mut)}
-.why-row h3{font-family:var(--font-d);font-size:clamp(1.2rem,2vw,1.65rem);font-weight:600;letter-spacing:-.01em}
-.why-row p{color:var(--mut);font-size:.92rem;max-width:48ch}
-.why-row .cross{width:22px;height:22px;position:relative;flex:none;justify-self:end}
-.why-row .cross::before,.why-row .cross::after{content:'';position:absolute;background:var(--red);transition:transform .4s var(--ease)}
-.why-row .cross::before{width:100%;height:1px;top:50%;left:0}
-.why-row .cross::after{width:1px;height:100%;left:50%;top:0}
-.why-row:hover .cross{}
-.why-row:hover .cross::before{transform:rotate(90deg)}
-.why-row:hover .cross::after{transform:rotate(90deg)}
-
-/* ============ QUALITY ============ */
-.quality{background:var(--ink-2);border-block:1px solid var(--line);padding:clamp(6rem,12vh,9rem) 0;position:relative;overflow:hidden}
-.quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
-.q-ring{position:relative;aspect-ratio:1;max-width:460px;margin:0 auto}
-.q-ring svg{width:100%;height:100%;animation:spin 40s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.q-ring .q-center{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.4rem;
-}
-.q-center .big{font-family:var(--font-d);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:600;line-height:1}
-.q-center .mono{color:var(--red)}
-.q-copy h2{margin-bottom:1.6rem}
-.q-copy p{color:var(--mut);margin-bottom:1.2rem;max-width:52ch}
-.q-points{margin-top:2rem;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
-.q-point{display:flex;align-items:center;gap:1.1rem;padding:1rem 0;border-bottom:1px solid var(--line);font-family:var(--font-d);font-weight:500;font-size:1rem}
-.q-point .chk{width:20px;height:20px;flex:none;border:1px solid var(--red);display:grid;place-items:center}
-.q-point .chk svg{width:11px;height:11px;stroke:var(--red);stroke-width:2.4;fill:none}
-
-/* ============ GOVCON ============ */
-.govcon{padding:clamp(6rem,12vh,9.5rem) 0}
-.gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-.gov-cell{background:var(--ink);padding:2.6rem 2.4rem}
-.gov-cell.dark{background:var(--ink-2)}
-.gov-cell h3{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin-bottom:1.4rem;display:flex;align-items:center;gap:.8rem}
-.gov-cell h3 .sq{width:9px;height:9px;background:var(--red);flex:none}
-.id-rows{display:flex;flex-direction:column}
-.id-row{display:flex;justify-content:space-between;align-items:baseline;padding:.85rem 0;border-bottom:1px solid var(--line);gap:1rem}
-.id-row:last-child{border-bottom:none}
-.id-row .k{color:var(--mut);font-size:.86rem}
-.id-row .v{font-family:var(--font-m);font-size:.8rem;letter-spacing:.06em;text-align:right}
-.naics{display:flex;flex-wrap:wrap;gap:.6rem}
-.naics span{font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;border:1px solid rgba(245,243,238,.2);padding:.5rem .85rem;transition:border-color .3s,background .3s}
-.naics span:hover{border-color:var(--red);background:var(--red-dim)}
-.gov-note{margin-top:1.6rem;font-size:.82rem;color:var(--mut);line-height:1.6}
-.pp-cell{grid-column:1/-1;background:var(--ink);padding:2.6rem 2.4rem}
-.pp-cell h3{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin-bottom:1.6rem;display:flex;align-items:center;gap:.8rem}
-.pp-cell h3 .sq{width:9px;height:9px;background:var(--red);flex:none}
-.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.pp-card{border:1px solid var(--line);padding:1.6rem 1.7rem;position:relative;transition:border-color .35s,background .35s}
-.pp-card:hover{border-color:rgba(232,54,45,.5);background:var(--ink-3)}
-.pp-card .mono{color:var(--red);display:block;margin-bottom:.7rem}
-.pp-card h4{font-family:var(--font-d);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
-.pp-card p{font-size:.86rem;color:var(--mut);line-height:1.6}
-.pp-card .badge{position:absolute;top:1.3rem;right:1.4rem;font-family:var(--font-m);font-size:.6rem;letter-spacing:.14em;color:var(--mut);border:1px solid var(--line);padding:.3rem .6rem}
-.partners-cell{grid-column:1/-1;background:var(--paper);padding:2rem 2.4rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
-.partners-cell .mono{color:var(--mut-dark);flex:none}
-.partner-logos{display:flex;align-items:center;gap:3rem;flex-wrap:wrap;flex:1;justify-content:space-around}
-.partner-logos img{height:26px;width:auto;filter:grayscale(1);opacity:.7;transition:opacity .3s,filter .3s}
-.partner-logos img:hover{opacity:1;filter:none}
-@media(max-width:700px){.pp-grid{grid-template-columns:1fr}.partner-logos{gap:1.6rem}}
-.gov-cta-band{
-  margin-top:1px;background:var(--red);color:#fff;padding:2.2rem 2.4rem;
-  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
-  grid-column:1/-1;
-}
-.gov-cta-band h4{font-family:var(--font-d);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:600;letter-spacing:-.01em}
-.gov-cta-band .btn{border:1px solid rgba(255,255,255,.55)}
-.gov-cta-band .btn:hover{background:#fff;color:var(--red);border-color:#fff}
-
-/* ============ PROCESS ============ */
-.process{background:var(--paper);color:var(--ink);padding:clamp(6rem,12vh,9.5rem) 0}
-.process h2.title{color:var(--ink)}
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.5rem,3vw,2.5rem);counter-reset:step}
-.proc{position:relative;padding-top:2rem}
-.proc::before{content:'';position:absolute;top:0;left:0;right:-2.5rem;height:1px;background:var(--line-dark)}
-.proc:last-child::before{right:0}
-.proc::after{content:'';position:absolute;top:-4px;left:0;width:9px;height:9px;background:var(--red)}
-.proc .mono{color:var(--red)}
-.proc h3{font-family:var(--font-d);font-size:1.2rem;font-weight:600;margin:.9rem 0 .6rem;color:var(--ink)}
-.proc p{font-size:.88rem;color:var(--mut-dark);line-height:1.65}
-
-/* ============ CONTACT ============ */
-.contact{padding:clamp(6rem,12vh,9.5rem) 0 0;position:relative;overflow:hidden}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);padding-bottom:clamp(5rem,10vh,8rem)}
-.contact-info h2{margin-bottom:1.6rem}
-.contact-info>p{color:var(--mut);max-width:46ch;margin-bottom:3rem}
-.c-rows{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.c-row{display:flex;align-items:center;gap:1.6rem;padding:1.5rem 0;border-bottom:1px solid var(--line);transition:padding-left .35s var(--ease)}
-.c-row:hover{padding-left:.8rem}
-.c-row .mono{color:var(--red);width:80px;flex:none}
-.c-row a,.c-row address{font-family:var(--font-d);font-size:clamp(1rem,1.6vw,1.25rem);font-weight:500;font-style:normal;letter-spacing:-.01em}
-.form{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);background:var(--ink-2)}
-.form-head{padding:1.6rem 2rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.form-head .mono{color:var(--mut)}
-.form-body{padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.field{display:flex;flex-direction:column;gap:.5rem}
-.field.full{grid-column:1/-1}
-.field label{font-family:var(--font-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
-.field input,.field select,.field textarea{
-  background:transparent;border:none;border-bottom:1px solid rgba(245,243,238,.22);
-  padding:.7rem 0;color:var(--paper);font-family:var(--font-b);font-size:.95rem;
-  transition:border-color .3s;resize:vertical;
-}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23E8362D'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .2rem center}
-.field select option{background:var(--ink-2)}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red)}
-.form-foot{padding:0 2rem 2rem}
-.form-foot .btn{width:100%;justify-content:center}
-
-/* ============ FOOTER ============ */
-footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
-.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding:4rem 0 3.4rem}
-.foot-brand p{color:var(--mut);font-size:.86rem;max-width:34ch;margin-top:1.1rem}
-.foot-col .mono{color:var(--red);display:block;margin-bottom:1.2rem}
-.foot-col a{display:block;color:var(--mut);font-size:.88rem;padding:.32rem 0;transition:color .3s,padding-left .3s}
-.foot-col a:hover{color:var(--paper);padding-left:.4rem}
-.foot-bottom{border-top:1px solid var(--line);padding:1.5rem 0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--mut);font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
-.big-word{
-  font-family:var(--font-d);font-weight:700;letter-spacing:-.02em;
-  font-size:clamp(2.6rem,8.4vw,8.4rem);line-height:.9;text-align:center;
-  color:transparent;-webkit-text-stroke:1px rgba(245,243,238,.14);
-  padding:2rem 0 0;user-select:none;white-space:nowrap;
-  transition:color 1.2s var(--ease);
-}
-.big-word.in{color:rgba(245,243,238,.05)}
-
-/* ============ responsive ============ */
-@media(max-width:1080px){
-  .caps-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){
   .hero-meta-inner{grid-template-columns:repeat(2,1fr)}
   .hm:nth-child(2){border-right:none}
-  .proc-grid{grid-template-columns:repeat(2,1fr);row-gap:3rem}
-  .proc::before{right:0}
-}
-@media(max-width:900px){
-  .nav-links{display:none}
-  .burger{display:flex}
-  .about-grid,.prod-grid,.quality-grid,.contact-grid,.gov-grid{grid-template-columns:1fr}
-  .gov-cta-band{grid-column:auto}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:none}
-  .stat{border-bottom:1px solid var(--line)}
-  .stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
-  .why-row{grid-template-columns:auto 1fr;grid-template-rows:auto auto;row-gap:.5rem}
-  .why-row p{grid-column:1/-1}
-  .why-row .cross{display:none}
+  .about-grid,.prod-grid{grid-template-columns:1fr}
   .hero-coords{display:none}
-  .form-body{grid-template-columns:1fr}
-  .foot-top{grid-template-columns:1fr 1fr}
 }
-@media(max-width:560px){
-  .caps-grid{grid-template-columns:1fr}
-  .cap{min-height:0}
-  .values,.proc-grid{grid-template-columns:1fr}
-  .hero-meta-inner{grid-template-columns:1fr 1fr}
-  .foot-top{grid-template-columns:1fr}
-}
+@media(max-width:560px){.hero-meta-inner{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
-<!-- ================= NAV ================= -->
-<nav class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <a href="#top" class="brand" aria-label="P Chak Consulting home">
-      <img src="assets/mark.png" alt="" width="38" height="38" style="width:38px;height:38px;object-fit:contain">
-      <span>
-        <span class="brand-name">P CHAK CONSULTING</span>
-        <span class="brand-sub">Unlocking New Possibilities</span>
-      </span>
-    </a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#products">Products</a>
-      <a href="#quality">Quality</a>
-      <a href="#govcon">Contracting</a>
-      <a href="#contact" class="nav-cta">Start a Conversation</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about"><span>About</span><span class="mono">01</span></a>
-  <a href="#capabilities"><span>Capabilities</span><span class="mono">02</span></a>
-  <a href="#products"><span>Products</span><span class="mono">03</span></a>
-  <a href="#quality"><span>Quality</span><span class="mono">04</span></a>
-  <a href="#govcon"><span>Contracting</span><span class="mono">05</span></a>
-  <a href="#contact"><span>Contact</span><span class="mono">06</span></a>
+<!-- preloader -->
+<div class="preloader">
+  <img src="assets/mark.png" alt="">
+  <div class="pre-count">000</div>
+  <div class="pre-bar"><span></span></div>
+  <div class="pre-tag">Unlocking New Possibilities</div>
 </div>
 
-<!-- ================= HERO ================= -->
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<!-- HERO -->
 <header class="hero" id="top">
   <canvas id="gridCanvas"></canvas>
   <div class="hero-coords">
@@ -455,15 +105,11 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
       <span class="dot"></span>
       <span class="mono">Technology · Defense · Aerospace · Industrial</span>
     </div>
-    <h1>
-      <span class="line"><span>Mission-critical</span></span>
-      <span class="line"><span>solutions, engineered</span></span>
-      <span class="line"><span>to <span class="accent">perform.</span></span></span>
-    </h1>
+    <h1 data-split>Mission-critical solutions, engineered to <span class="accent">perform.</span></h1>
     <p class="hero-sub">P CHAK CONSULTING partners with government and commercial organizations to deliver cybersecurity, IT modernization, defense and aerospace technologies, and field-proven industrial fluid-control products — with zero compromise on quality.</p>
     <div class="hero-actions">
-      <a href="#capabilities" class="btn btn-solid"><span>Explore Capabilities</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
-      <a href="#govcon" class="btn btn-ghost"><span>Do Business With Us</span><span class="arr">→</span></a>
+      <a href="capabilities.html" class="btn btn-solid"><span>Explore Capabilities</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="contracting.html" class="btn btn-ghost"><span>Do Business With Us</span><span class="arr">→</span></a>
     </div>
   </div>
   <div class="hero-meta">
@@ -476,48 +122,43 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
   </div>
 </header>
 
-<!-- ================= MARQUEE ================= -->
+<!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="mqTrack">
-    <div class="mq-item"><span>CYBERSECURITY</span><span class="diamond"></span><span>IT MODERNIZATION</span><span class="diamond"></span><span>DEFENSE TECHNOLOGIES</span><span class="diamond"></span><span>AEROSPACE ENGINEERING</span><span class="diamond"></span><span>SPACE SYSTEMS</span><span class="diamond"></span><span>INDUSTRIAL AUTOMATION</span><span class="diamond"></span><span>FLUID CONTROL</span><span class="diamond"></span><span>COMMERCIAL SOLUTIONS</span><span class="diamond"></span></div>
+  <div class="marquee-track">
+    <div class="mq-item"><span>CYBERSECURITY</span><span class="diamond"></span><span>IT MODERNIZATION</span><span class="diamond"></span><span>DEFENSE TECHNOLOGIES</span><span class="diamond"></span><span>AEROSPACE ENGINEERING</span><span class="diamond"></span><span>SPACE SYSTEMS</span><span class="diamond"></span><span>INDUSTRIAL AUTOMATION</span><span class="diamond"></span><span>FLUID CONTROL</span><span class="diamond"></span><span>LOGISTICS & SUPPLY</span><span class="diamond"></span></div>
   </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
+<!-- ABOUT TEASER -->
+<section class="sec">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker mono"><span class="tick"></span>01 — Who We Are</span>
       <span class="mono" style="color:var(--mut)">Your Partner in Progress</span>
     </div>
     <div class="about-grid">
-      <p class="about-statement rv">We exist for the programs where <em>failure is not an option</em> — where security, precision, and reliability decide the outcome.</p>
+      <p class="about-statement" data-split>We exist for the programs where <em>failure is not an option</em> — where security, precision, and reliability decide the outcome.</p>
       <div class="about-body rv rv-d2">
-        <p><strong>P CHAK CONSULTING</strong> is a technology and solutions firm serving government and commercial clients across cybersecurity, information technology, defense, aerospace, and industrial sectors from our headquarters in Johns Creek, Georgia.</p>
-        <p>We operate as a trusted extension of our clients' teams — pairing multidisciplinary engineering expertise with disciplined program management to move missions from requirement to result. Every engagement is built on the same foundation: trusted quality, transparent partnership, and delivery you can stake a mission on.</p>
-        <div class="values">
-          <div class="value"><span class="mono">V.01</span><h4>Trusted Quality</h4><p>Uncompromising standards applied to every deliverable, every time.</p></div>
-          <div class="value"><span class="mono">V.02</span><h4>Mission First</h4><p>Your success is our mission — outcomes over activity, always.</p></div>
-          <div class="value"><span class="mono">V.03</span><h4>Engineered Innovation</h4><p>Solutions that anticipate future needs, not just today's spec.</p></div>
-          <div class="value"><span class="mono">V.04</span><h4>True Partnership</h4><p>Client-centric, flexible engagement models built on trust.</p></div>
-        </div>
+        <p><strong>P CHAK CONSULTING LLC</strong> is a technology and solutions firm serving government and commercial clients across cybersecurity, information technology, defense, aerospace, and industrial sectors — registered in SAM.gov, performing nationwide, with delivered past performance for the Defense Logistics Agency.</p>
+        <p>We operate as a trusted extension of our clients' teams — pairing multidisciplinary engineering expertise with disciplined program management to move missions from requirement to result.</p>
+        <a href="about.html" class="btn btn-ghost" style="align-self:flex-start"><span>Our Story</span><span class="arr">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= STATS ================= -->
-<section class="stats">
+<!-- STATS -->
+<section class="sec-dark2">
   <div class="wrap stats-grid">
     <div class="stat rv"><div class="num"><span class="count" data-target="8">0</span></div><div class="lbl mono">Core Capability Domains</div></div>
-    <div class="stat rv rv-d1"><div class="num"><span class="count" data-target="6">0</span><sup>+</sup></div><div class="lbl mono">Industries Served</div></div>
+    <div class="stat rv rv-d1"><div class="num"><span class="count" data-target="30">0</span></div><div class="lbl mono">Registered NAICS Codes</div></div>
     <div class="stat rv rv-d2"><div class="num"><span class="count" data-target="100">0</span><sup>%</sup></div><div class="lbl mono">Quality Commitment</div></div>
-    <div class="stat rv rv-d3"><div class="num">24<sup>/7</sup></div><div class="lbl mono">Mission Support Posture</div></div>
+    <div class="stat rv rv-d3"><div class="num">50<sup>+</sup></div><div class="lbl mono">States Covered — Nationwide</div></div>
   </div>
 </section>
 
-<!-- ================= CAPABILITIES ================= -->
-<section class="caps" id="capabilities">
+<!-- CAPABILITIES -->
+<section class="sec">
   <div class="wrap">
     <div class="section-head rv">
       <div>
@@ -527,116 +168,95 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
       <span class="mono" style="color:var(--mut);max-width:30ch;line-height:1.8">Full-spectrum delivery across the technology, defense & industrial landscape</span>
     </div>
     <div class="caps-grid">
-      <div class="cap rv">
+      <a class="cap rv" href="capabilities.html#cyber" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 01</span>
         <div class="icon"><svg viewBox="0 0 44 44"><path d="M22 4l14 6v10c0 9-6 16-14 20C14 36 8 29 8 20V10z"/><path d="M16 21l4 4 8-9"/></svg></div>
         <h3>Cybersecurity</h3>
-        <p>Threat-informed defense of digital assets — risk assessment, hardening, monitoring, and incident readiness against an evolving adversary landscape.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d1">
+        <p>Threat-informed defense of digital assets — risk assessment, hardening, monitoring, and incident readiness.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d1" href="capabilities.html#it" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 02</span>
         <div class="icon"><svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="22" rx="1"/><path d="M14 36h16M22 30v6M13 24l5-5 4 3 7-8"/></svg></div>
         <h3>IT Solutions</h3>
-        <p>Enterprise modernization with cutting-edge technology — cloud, infrastructure, data, and systems integration that transforms how organizations operate.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d2">
+        <p>Enterprise modernization — cloud, infrastructure, data, and systems integration that transforms operations.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d2" href="capabilities.html#industrial" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 03</span>
         <div class="icon"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="7"/><path d="M22 4v6M22 34v6M4 22h6M34 22h6M9 9l4.5 4.5M30.5 30.5L35 35M35 9l-4.5 4.5M13.5 30.5L9 35"/></svg></div>
         <h3>Industrial Innovation</h3>
-        <p>Process automation and smart-manufacturing optimization that raises throughput, tightens tolerances, and cuts operational cost.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d3">
+        <p>Process automation and smart-manufacturing optimization that raises throughput and cuts cost.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d3" href="capabilities.html#defense" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 04</span>
         <div class="icon"><svg viewBox="0 0 44 44"><path d="M22 3l5 11h12l-9 8 3 12-11-7-11 7 3-12-9-8h12z"/></svg></div>
         <h3>Defense Technologies</h3>
-        <p>Advanced solutions that strengthen force readiness — engineered for the reliability and security the defense mission demands.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv">
+        <p>Advanced solutions that strengthen force readiness — proven with delivered DLA contracts.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv" href="capabilities.html#aero" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 05</span>
         <div class="icon"><svg viewBox="0 0 44 44"><path d="M8 36c6-2 8-4 10-8L30 14c2-2 6-3 8-8-5 2-6 6-8 8M18 28l-2-2M14 38l-3-3-3-3 5-1 2 2M25 19l6 1-1 6"/></svg></div>
         <h3>Aerospace Engineering</h3>
-        <p>Design, manufacturing, and propulsion-system expertise supporting airworthy platforms from concept through sustainment.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d1">
+        <p>Design, manufacturing, and propulsion-system expertise from concept through sustainment.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d1" href="capabilities.html#space" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 06</span>
         <div class="icon"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="9"/><ellipse cx="22" cy="22" rx="18" ry="6" transform="rotate(-20 22 22)"/><circle cx="35" cy="14" r="1.6" fill="currentColor"/></svg></div>
         <h3>Space Systems</h3>
         <p>Satellite technologies and mission-critical systems built to survive the hardest environment there is.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d2">
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d2" href="capabilities.html#commercial" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 07</span>
         <div class="icon"><svg viewBox="0 0 44 44"><path d="M6 38V22l10-7v6l10-7v6l12-8v26z"/><path d="M12 32h4M20 32h4M28 32h4"/></svg></div>
         <h3>Commercial & Logistics</h3>
-        <p>Strategic market solutions plus logistics, equipment, and facility-support services that keep enterprise operations moving.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
-      <div class="cap rv rv-d3">
+        <p>Strategic market solutions plus logistics, equipment, and facility-support services nationwide.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
+      <a class="cap rv rv-d3" href="products.html" data-cursor="VIEW">
         <span class="corner"></span><span class="idx">/ 08</span>
         <div class="icon"><svg viewBox="0 0 44 44"><path d="M16 6h12v8h6v8H10v-8h6zM10 22v16M34 22v16M10 30h24M22 14v8"/></svg></div>
         <h3>Fluid Control Products</h3>
-        <p>Field-proven pressure-relief valves and fluid-control hardware for the most demanding industrial applications.</p>
-        <span class="more">Learn more <span>→</span></span>
-      </div>
+        <p>Field-proven pressure-relief valves and fluid-control hardware for demanding applications.</p>
+        <span class="more">Explore <span>→</span></span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ================= PRODUCTS ================= -->
-<section class="products" id="products">
+<!-- PRODUCTS TEASER -->
+<section class="sec sec-paper">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker mono"><span class="tick"></span>03 — Product Line</span>
-      <span class="mono" style="color:var(--mut-dark)">Fluid Control Division</span>
+      <span class="mono">Fluid Control Division</span>
     </div>
     <div class="prod-grid">
       <div class="prod-copy rv">
         <h2 class="title">Pressure relief valves, <em>proven in the field.</em></h2>
-        <p style="margin-top:1.6rem">Beyond services, P CHAK CONSULTING supplies <strong>field-proven pressure-relief valves and fluid-control solutions</strong> engineered for demanding industrial, energy, and process applications — where a single failure point is one too many.</p>
-        <p>Every unit we deliver is selected and specified against your actual operating conditions: pressure class, media, temperature envelope, and duty cycle.</p>
-        <div class="prod-feats">
-          <div class="pf"><span class="mono">F.01</span><h4>Application Engineering</h4><span>Sized to your service conditions</span></div>
-          <div class="pf"><span class="mono">F.02</span><h4>Demanding Environments</h4><span>High-pressure & severe duty</span></div>
-          <div class="pf"><span class="mono">F.03</span><h4>Quality Assured</h4><span>Inspected & documented</span></div>
-          <div class="pf"><span class="mono">F.04</span><h4>Lifecycle Support</h4><span>Spec → supply → sustainment</span></div>
-        </div>
+        <p style="margin-top:1.6rem">Beyond services, P CHAK CONSULTING supplies <strong>field-proven pressure-relief valves and fluid-control solutions</strong> engineered for demanding industrial, energy, and process applications — plus defense-grade hardware supply delivered through the Defense Logistics Agency.</p>
+        <a href="products.html" class="btn btn-solid"><span>View Product Line</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
       </div>
-      <div class="prod-visual rv rv-d2">
-        <!-- technical blueprint illustration -->
+      <div class="prod-visual rv rv-d2" data-parallax="0.06">
         <svg viewBox="0 0 480 520" fill="none">
-          <defs>
-            <pattern id="bgrid" width="24" height="24" patternUnits="userSpaceOnUse">
-              <path d="M24 0H0v24" stroke="rgba(6,9,15,.07)" stroke-width="1" fill="none"/>
-            </pattern>
-          </defs>
+          <defs><pattern id="bgrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" stroke="rgba(6,9,15,.07)" stroke-width="1" fill="none"/></pattern></defs>
           <rect width="480" height="520" fill="url(#bgrid)"/>
           <g stroke="#06090F" stroke-width="1.6">
-            <!-- valve body -->
             <rect x="170" y="300" width="140" height="110" rx="4"/>
             <path d="M140 410h200M150 435h180" stroke-width="2"/>
-            <rect x="120" y="330" width="50" height="50"/>
-            <rect x="310" y="330" width="50" height="50"/>
+            <rect x="120" y="330" width="50" height="50"/><rect x="310" y="330" width="50" height="50"/>
             <path d="M120 330h-20M120 380h-20M360 330h20M360 380h20"/>
-            <!-- bonnet -->
-            <path d="M190 300v-40h100v40"/>
-            <path d="M200 260v-30h80v30"/>
-            <!-- spring chamber -->
+            <path d="M190 300v-40h100v40"/><path d="M200 260v-30h80v30"/>
             <path d="M210 230v-90h60v90"/>
             <path d="M215 150l50 12M215 174l50 12M215 198l50 12M215 126l50 12" stroke="#E8362D" stroke-width="1.4"/>
-            <!-- stem + cap -->
-            <path d="M236 140v-50h8v50" />
-            <rect x="216" y="72" width="48" height="20" rx="2"/>
-            <path d="M240 72V52"/>
-            <circle cx="240" cy="46" r="7"/>
-            <!-- outlet -->
+            <path d="M236 140v-50h8v50"/><rect x="216" y="72" width="48" height="20" rx="2"/>
+            <path d="M240 72V52"/><circle cx="240" cy="46" r="7"/>
             <path d="M310 355h60" stroke-width="2"/>
           </g>
-          <!-- dimension lines -->
           <g stroke="rgba(6,9,15,.4)" stroke-width="1">
             <path d="M395 300v110M390 300h10M390 410h10"/>
             <path d="M170 455v10M310 455v10M170 462h140"/>
@@ -647,76 +267,19 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
           <text x="60" y="128" class="blueprint-label">SPRING-LOADED</text>
           <text x="30" y="30" class="blueprint-label">DWG NO. PC-PRV-001 / REV C</text>
           <text x="330" y="30" class="blueprint-label" fill="#E8362D">P CHAK FLUID CONTROL</text>
-          <!-- crosshair -->
-          <g stroke="#E8362D" stroke-width="1">
-            <circle cx="240" cy="355" r="14"/>
-            <path d="M240 333v44M218 355h44"/>
-          </g>
+          <g stroke="#E8362D" stroke-width="1"><circle cx="240" cy="355" r="14"/><path d="M240 333v44M218 355h44"/></g>
         </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= WHY ================= -->
-<section class="why" id="why">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="kicker mono"><span class="tick"></span>04 — The P CHAK Difference</span>
-      <span class="mono" style="color:var(--mut)">Why organizations choose us</span>
-    </div>
-    <div class="why-list">
-      <div class="why-row rv"><span class="mono">01</span><h3>Proven Excellence</h3><p>A track record of disciplined delivery across a diverse portfolio of technology and engineering projects.</p><span class="cross"></span></div>
-      <div class="why-row rv"><span class="mono">02</span><h3>Multidisciplinary Depth</h3><p>Cyber, IT, aerospace, defense, and industrial expertise under one roof — no seams, no hand-offs.</p><span class="cross"></span></div>
-      <div class="why-row rv"><span class="mono">03</span><h3>Innovation That Anticipates</h3><p>We design for the requirement after next, so your investment outlasts the contract period.</p><span class="cross"></span></div>
-      <div class="why-row rv"><span class="mono">04</span><h3>Client-Centric Service</h3><p>Personalized engagement models — from staff augmentation to full turnkey delivery — shaped to your mission.</p><span class="cross"></span></div>
-      <div class="why-row rv"><span class="mono">05</span><h3>Uncompromising Quality</h3><p>Quality assurance is embedded in our process, not inspected in at the end.</p><span class="cross"></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUALITY ================= -->
-<section class="quality" id="quality">
-  <div class="wrap quality-grid">
-    <div class="q-ring rv">
-      <svg viewBox="0 0 400 400" fill="none">
-        <circle cx="200" cy="200" r="192" stroke="rgba(245,243,238,.12)"/>
-        <circle cx="200" cy="200" r="160" stroke="rgba(245,243,238,.08)" stroke-dasharray="4 8"/>
-        <circle cx="200" cy="200" r="192" stroke="#E8362D" stroke-width="2" stroke-dasharray="90 1116" stroke-linecap="round"/>
-        <g fill="rgba(245,243,238,.4)" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
-          <text x="200" y="24" text-anchor="middle">QUALITY ASSURANCE</text>
-          <text x="200" y="386" text-anchor="middle">TRUSTED DELIVERY</text>
-        </g>
-        <g stroke="rgba(245,243,238,.25)">
-          <path d="M200 8v14M200 378v14M8 200h14M378 200h14"/>
-        </g>
-      </svg>
-      <div class="q-center">
-        <span class="mono">QA Doctrine</span>
-        <span class="big">Zero<br>Defect</span>
-        <span class="mono" style="color:var(--mut)">Mindset · Method · Metric</span>
-      </div>
-    </div>
-    <div class="q-copy">
-      <div class="kicker mono rv" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>05 — Quality Assurance</div>
-      <h2 class="title rv">Quality is not a phase. <em>It's the operating system.</em></h2>
-      <p class="rv rv-d1" style="margin-top:1.4rem">Our commitment to the highest standards is what makes P CHAK CONSULTING a trusted and respected name. Reliability and security aren't features we add — they're the baseline every solution is built on.</p>
-      <div class="q-points rv rv-d2">
-        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Documented quality management across every engagement</div>
-        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Verification & validation gates before every delivery</div>
-        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Security-first engineering, from design review to deployment</div>
-        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Continuous improvement driven by measured outcomes</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GOVCON ================= -->
-<section class="govcon" id="govcon">
+<!-- GOVCON SUMMARY -->
+<section class="sec">
   <div class="wrap">
     <div class="section-head rv">
       <div>
-        <span class="kicker mono"><span class="tick"></span>06 — Doing Business With Us</span>
+        <span class="kicker mono"><span class="tick"></span>04 — Doing Business With Us</span>
         <h2 class="title" style="margin-top:1.2rem">Contract-ready.<br><em>Mission-ready.</em></h2>
       </div>
       <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">Identifiers & vehicles for contracting officers and prime partners</span>
@@ -730,165 +293,123 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
           <div class="id-row"><span class="k">CAGE Code</span><span class="v">9NWB7</span></div>
           <div class="id-row"><span class="k">SAM.gov</span><span class="v">ACTIVE REGISTRATION</span></div>
           <div class="id-row"><span class="k">Primary NAICS</span><span class="v">541611 — MGMT CONSULTING</span></div>
-          <div class="id-row"><span class="k">Business Status</span><span class="v">SMALL BUSINESS — ALL NAICS</span></div>
           <div class="id-row"><span class="k">Socioeconomic</span><span class="v">MINORITY-OWNED · SELF-CERT SDB</span></div>
-          <div class="id-row"><span class="k">Gov. Business POC</span><span class="v">PRIYANKAR CHAKRABORTY — PRESIDENT & CEO</span></div>
-          <div class="id-row"><span class="k">Coverage</span><span class="v">NATIONWIDE</span></div>
           <div class="id-row"><span class="k">Capability Statement</span><a class="v" style="color:var(--red)" href="assets/PCHAK-Capability-Statement.pdf" download>DOWNLOAD PDF ↓</a></div>
         </div>
       </div>
       <div class="gov-cell dark">
-        <h3><span class="sq"></span>Select NAICS Coverage</h3>
-        <div class="naics">
-          <span>541611 · MGMT CONSULTING</span>
-          <span>541511 · CUSTOM PROGRAMMING</span>
-          <span>541512 · SYSTEMS DESIGN</span>
-          <span>541519 · COMPUTER SERVICES</span>
-          <span>513210 · SOFTWARE PUBLISHING</span>
-          <span>518210 · COMPUTING INFRA & HOSTING</span>
-          <span>561621 · SECURITY SYSTEMS</span>
-          <span>611420 · COMPUTER TRAINING</span>
-          <span>334111 · COMPUTER MFG</span>
-          <span>423430 · IT EQUIPMENT SUPPLY</span>
-          <span>237130 · POWER & COMMS CONSTRUCTION</span>
-        </div>
-        <p class="gov-note">30 NAICS codes registered in SAM.gov spanning IT services, technology manufacturing and supply, security, construction, and facility support. We engage as a prime contractor and as a teaming/subcontract partner — request our full capability statement for the complete code list, past performance, and differentiators.</p>
-      </div>
-      <div class="pp-cell">
-        <h3><span class="sq"></span>Past Performance — U.S. Department of Defense</h3>
-        <div class="pp-grid">
+        <h3><span class="sq"></span>Past Performance — U.S. DoD</h3>
+        <div style="display:flex;flex-direction:column;gap:1.2rem">
           <div class="pp-card">
             <span class="badge">FEDERAL AWARD</span>
             <span class="mono">Defense Logistics Agency</span>
             <h4>DLA Land and Maritime — Land Supply</h4>
-            <p>Awarded and delivered 137 units of retaining straps in support of DLA Land Supply operations — on specification, on schedule.</p>
+            <p>137 units of retaining straps delivered — on specification, on schedule.</p>
           </div>
           <div class="pp-card">
             <span class="badge">FEDERAL AWARD</span>
             <span class="mono">Defense Logistics Agency</span>
             <h4>DLA Land and Maritime — Electrical Devices</h4>
-            <p>Awarded and delivered 163 units of pressure switches for DLA Electrical Devices — qualified product, full traceability.</p>
+            <p>163 units of pressure switches delivered — qualified product, full traceability.</p>
           </div>
         </div>
-      </div>
-      <div class="partners-cell">
-        <span class="mono">Authorized Partners</span>
-        <div class="partner-logos">
-          <img src="assets/Microsoft_logo.svg.png" alt="Microsoft">
-          <img src="assets/Dell_Logo.png" alt="Dell">
-          <img src="assets/IBM_logo.svg.png" alt="IBM">
-          <img src="assets/Lenovo_Global_Corporate_Logo.png" alt="Lenovo">
-        </div>
-      </div>
-      <div class="gov-cta-band">
-        <h4>Have a requirement? Let's scope it together.</h4>
-        <a class="btn" href="assets/PCHAK-Capability-Statement.pdf" download><span>Download Capability Statement</span><span class="arr">↓</span></a>
+        <p class="gov-note"><a href="contracting.html" style="color:var(--red)">View the full contracting profile →</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PROCESS ================= -->
-<section class="process" id="process">
+<!-- PARTNERS -->
+<div class="partners-band">
+  <div class="wrap partners-inner">
+    <span class="mono">Authorized Partners</span>
+    <div class="partner-logos">
+      <img src="assets/Microsoft_logo.svg.png" alt="Microsoft">
+      <img src="assets/Dell_Logo.png" alt="Dell">
+      <img src="assets/IBM_logo.svg.png" alt="IBM">
+      <img src="assets/Lenovo_Global_Corporate_Logo.png" alt="Lenovo">
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="sec">
   <div class="wrap">
     <div class="section-head rv">
       <div>
-        <span class="kicker mono"><span class="tick"></span>07 — How We Engage</span>
+        <span class="kicker mono"><span class="tick"></span>05 — How We Engage</span>
         <h2 class="title" style="margin-top:1.2rem">From requirement<br>to result.</h2>
       </div>
     </div>
     <div class="proc-grid">
       <div class="proc rv"><span class="mono">Phase 01</span><h3>Discover</h3><p>We map your mission, constraints, and success criteria — before we propose a single line of scope.</p></div>
-      <div class="proc rv rv-d1"><span class="mono">Phase 02</span><h3>Engineer</h3><p>Solutions architected against the requirement after next, with security and quality designed in from day one.</p></div>
+      <div class="proc rv rv-d1"><span class="mono">Phase 02</span><h3>Engineer</h3><p>Solutions architected against the requirement after next, with security and quality designed in.</p></div>
       <div class="proc rv rv-d2"><span class="mono">Phase 03</span><h3>Deliver</h3><p>Disciplined execution with transparent reporting, verification gates, and zero surprises at handoff.</p></div>
-      <div class="proc rv rv-d3"><span class="mono">Phase 04</span><h3>Sustain</h3><p>Lifecycle support that protects your investment — optimization, maintenance, and mission continuity.</p></div>
+      <div class="proc rv rv-d3"><span class="mono">Phase 04</span><h3>Sustain</h3><p>Lifecycle support that protects your investment — optimization, maintenance, mission continuity.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-info">
-      <div class="kicker mono rv" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>08 — Contact</div>
-      <h2 class="title rv">Let's build what your <em>mission requires.</em></h2>
-      <p class="rv rv-d1" style="margin-top:1.4rem">Whether you're a contracting officer with a requirement, a prime seeking a teammate, or a commercial leader ready to modernize — we respond within one business day.</p>
-      <div class="c-rows rv rv-d2">
-        <div class="c-row"><span class="mono">Toll-Free</span><a href="tel:+18009882863">(800) 988 · 2863</a></div>
-        <div class="c-row"><span class="mono">Phone</span><a href="tel:+16789272870">678 · 927 · 2870</a></div>
-        <div class="c-row"><span class="mono">Email</span><a href="mailto:info@pchakconsulting.com">info@pchakconsulting.com</a></div>
-        <div class="c-row"><span class="mono">Office</span><address>11555 Medlock Bridge Rd, Suite 100<br>Johns Creek, GA 30097</address></div>
-      </div>
+<!-- BIG CTA -->
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready When You Are</span>
+    <h2 data-split>Let's build what your <em>mission requires.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Start a Conversation</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" class="btn btn-ghost" download><span>Capability Statement</span><span class="arr">↓</span></a>
     </div>
-    <form class="form rv rv-d2" id="contactForm" action="mailto:info@pchakconsulting.com" method="post" enctype="text/plain">
-      <div class="form-head">
-        <span class="mono">Inquiry Form</span>
-        <span class="mono" style="color:var(--red)">SECURE-CHANNEL</span>
-      </div>
-      <div class="form-body">
-        <div class="field"><label for="f-name">Full Name</label><input id="f-name" name="name" type="text" required placeholder="Jane Smith"></div>
-        <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" type="text" placeholder="Agency / Company"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="you@agency.gov"></div>
-        <div class="field"><label for="f-topic">Area of Interest</label>
-          <select id="f-topic" name="topic">
-            <option>Cybersecurity</option><option>IT Solutions</option><option>Defense Technologies</option>
-            <option>Aerospace / Space</option><option>Industrial / Fluid Control</option><option>Teaming / Subcontracting</option><option>Other</option>
-          </select>
-        </div>
-        <div class="field full"><label for="f-msg">Your Requirement</label><textarea id="f-msg" name="message" rows="4" placeholder="Tell us about the mission…"></textarea></div>
-      </div>
-      <div class="form-foot">
-        <button type="submit" class="btn btn-solid"><span>Transmit Inquiry</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></button>
-      </div>
-    </form>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer>
-  <div class="big-word rv" id="bigWord">P CHAK CONSULTING</div>
+  <div class="big-word">P CHAK CONSULTING</div>
   <div class="wrap foot-top">
     <div class="foot-brand">
-      <a href="#top" class="brand">
-        <img src="assets/mark.png" alt="" width="34" height="34" style="width:34px;height:34px;object-fit:contain">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
         <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
       </a>
-      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients.</p>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
     </div>
     <div class="foot-col">
       <span class="mono">Company</span>
-      <a href="#about">About Us</a>
-      <a href="#why">Why P CHAK</a>
-      <a href="#quality">Quality Assurance</a>
-      <a href="#contact">Careers</a>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html">Careers</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="foot-col">
       <span class="mono">Capabilities</span>
-      <a href="#capabilities">Cybersecurity</a>
-      <a href="#capabilities">IT Solutions</a>
-      <a href="#capabilities">Defense & Aerospace</a>
-      <a href="#products">Fluid Control Products</a>
+      <a href="capabilities.html#cyber">Cybersecurity</a>
+      <a href="capabilities.html#it">IT Solutions</a>
+      <a href="capabilities.html#defense">Defense & Aerospace</a>
+      <a href="products.html">Fluid Control Products</a>
     </div>
     <div class="foot-col">
       <span class="mono">Contracting</span>
-      <a href="#govcon">Doing Business With Us</a>
-      <a href="#govcon">Contract Vehicles</a>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
       <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
-      <a href="#contact">Contact</a>
     </div>
   </div>
   <div class="wrap foot-bottom">
     <span>© <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
     <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
     <span>Johns Creek · Georgia · USA</span>
-    <span><a href="#">Privacy</a> &nbsp;/&nbsp; <a href="#">Terms</a></span>
   </div>
 </footer>
 
+<script src="assets/site.js"></script>
 <script>
-/* ============ hero canvas: drifting particle grid + radar sweep ============ */
+/* hero canvas */
 (function(){
   const cv = document.getElementById('gridCanvas');
+  if(!cv) return;
   const ctx = cv.getContext('2d');
   let W,H,pts=[],t=0, dpr=Math.min(window.devicePixelRatio||1,2);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -902,20 +423,19 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
   function frame(){
     t+=.004;
     ctx.clearRect(0,0,W,H);
-    // faint grid
     ctx.strokeStyle='rgba(245,243,238,.035)';ctx.lineWidth=1;
-    const g=64;
-    ctx.beginPath();
+    const g=64;ctx.beginPath();
     for(let x=g;x<W;x+=g){ctx.moveTo(x,0);ctx.lineTo(x,H)}
     for(let y=g;y<H;y+=g){ctx.moveTo(0,y);ctx.lineTo(W,y)}
     ctx.stroke();
-    // radar sweep
     const cx=W*.78, cy=H*.32, R=Math.min(W,H)*.55;
-    const grad=ctx.createConicGradient? (function(){const gr=ctx.createConicGradient(t*2,cx,cy);gr.addColorStop(0,'rgba(232,54,45,.10)');gr.addColorStop(.08,'rgba(232,54,45,0)');gr.addColorStop(1,'rgba(232,54,45,0)');return gr})():null;
-    if(grad){ctx.fillStyle=grad;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fill();}
+    if(ctx.createConicGradient){
+      const gr=ctx.createConicGradient(t*2,cx,cy);
+      gr.addColorStop(0,'rgba(232,54,45,.10)');gr.addColorStop(.08,'rgba(232,54,45,0)');gr.addColorStop(1,'rgba(232,54,45,0)');
+      ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fill();
+    }
     ctx.strokeStyle='rgba(245,243,238,.05)';
     [R*.35,R*.65,R].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();});
-    // particles + links
     for(const p of pts){
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<0||p.x>W)p.vx*=-1;
@@ -929,65 +449,8 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);overflow:hidden}
     }
     if(!reduce)requestAnimationFrame(frame);
   }
-  size();addEventListener('resize',size);
-  frame();
+  size();addEventListener('resize',size);frame();
 })();
-
-/* ============ nav scroll behavior ============ */
-(function(){
-  const nav=document.getElementById('nav');let last=0;
-  addEventListener('scroll',()=>{
-    const y=scrollY;
-    nav.classList.toggle('scrolled',y>40);
-    nav.classList.toggle('hidden',y>500&&y>last&&!document.getElementById('mobileMenu').classList.contains('open'));
-    last=y;
-  },{passive:true});
-})();
-
-/* ============ mobile menu ============ */
-(function(){
-  const b=document.getElementById('burger'),m=document.getElementById('mobileMenu');
-  b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''});
-  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b.classList.remove('open');m.classList.remove('open');document.body.style.overflow=''}));
-})();
-
-/* ============ reveal on scroll ============ */
-(function(){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-})();
-
-/* ============ counters ============ */
-(function(){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting)return;io.unobserve(e.target);
-    const el=e.target,target=+el.dataset.target,dur=1400,t0=performance.now();
-    (function tick(now){
-      const p=Math.min((now-t0)/dur,1),ease=1-Math.pow(1-p,3);
-      el.textContent=Math.round(target*ease);
-      if(p<1)requestAnimationFrame(tick);
-    })(t0);
-  }),{threshold:.6});
-  document.querySelectorAll('.count').forEach(el=>io.observe(el));
-})();
-
-/* ============ marquee duplication ============ */
-(function(){
-  const t=document.getElementById('mqTrack');
-  t.innerHTML+=t.innerHTML;
-})();
-
-/* ============ live clock (ET) ============ */
-(function(){
-  const el=document.getElementById('clock');
-  function tick(){
-    el.textContent=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'America/New_York'}).format(new Date())+' ET';
-  }
-  tick();setInterval(tick,1000);
-})();
-
-/* ============ year ============ */
-document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>

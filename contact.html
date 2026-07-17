@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — P CHAK CONSULTING</title>
+<meta name="description" content="Contact P CHAK CONSULTING LLC — Johns Creek, Georgia. Toll-free (800) 988-2863, office 678-927-2870, info@pchakconsulting.com. We respond within one business day.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.map-card{border:1px solid var(--line);background:var(--ink-2);padding:2rem;margin-top:2.4rem;position:relative;overflow:hidden}
+.map-card .mono{color:var(--red)}
+.map-card svg{width:100%;height:auto;margin-top:1.4rem}
+.hours{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.4rem}
+.hour{background:var(--ink);padding:1.4rem 1.5rem}
+.hour .mono{color:var(--mut);display:block;margin-bottom:.3rem}
+.hour strong{font-family:var(--font-d);font-weight:600}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></div>
+    <h1 data-split>Let's build what your <em>mission requires.</em></h1>
+    <p class="lede rv rv-d2">Whether you're a contracting officer with a requirement, a prime seeking a teammate, or a commercial leader ready to modernize — we respond within one business day.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Toll-Free</span><strong>(800) 988-2863</strong></div>
+      <div><span class="mono">Response Time</span><strong>1 Business Day</strong></div>
+      <div><span class="mono">Local Time</span><strong id="clock">—</strong></div>
+    </div>
+    <span class="ph-num">06</span>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker mono rv" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem"><span class="tick"></span>Direct Channels</div>
+      <div class="c-rows rv rv-d1">
+        <div class="c-row"><span class="mono">Toll-Free</span><a href="tel:+18009882863" data-cursor="CALL">(800) 988 · 2863</a></div>
+        <div class="c-row"><span class="mono">Office</span><a href="tel:+16789272870" data-cursor="CALL">678 · 927 · 2870</a></div>
+        <div class="c-row"><span class="mono">General</span><a href="mailto:info@pchakconsulting.com" data-cursor="EMAIL">info@pchakconsulting.com</a></div>
+        <div class="c-row"><span class="mono">Gov. POC</span><a href="mailto:priyankar@pchakconsulting.com" data-cursor="EMAIL">priyankar@pchakconsulting.com</a></div>
+        <div class="c-row"><span class="mono">Address</span><address>11555 Medlock Bridge Rd, Suite 100<br>Johns Creek, GA 30097</address></div>
+      </div>
+      <div class="map-card rv rv-d2" data-tilt>
+        <span class="mono">Grid Reference — Johns Creek, GA</span>
+        <svg viewBox="0 0 520 240" fill="none">
+          <defs><pattern id="mgrid" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0v26" stroke="rgba(245,243,238,.08)" stroke-width="1" fill="none"/></pattern></defs>
+          <rect width="520" height="240" fill="url(#mgrid)"/>
+          <path d="M40 200C120 170 150 120 210 110s110 20 160 -10 80 -50 90 -60" stroke="rgba(245,243,238,.25)" stroke-width="1.4"/>
+          <path d="M0 150C80 140 170 160 260 150s170-40 260-30" stroke="rgba(61,99,201,.45)" stroke-width="1.4"/>
+          <g stroke="#E8362D">
+            <circle cx="310" cy="118" r="16"/>
+            <circle cx="310" cy="118" r="4" fill="#E8362D"/>
+            <path d="M310 94v-14M310 142v14M286 118h-14M334 118h14"/>
+          </g>
+          <text x="330" y="100" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="rgba(245,243,238,.7)">HQ — 34.0289°N 84.1986°W</text>
+          <text x="20" y="226" font-family="IBM Plex Mono" font-size="9" letter-spacing="2" fill="rgba(245,243,238,.4)">SECTOR: ATLANTA METRO — NE CORRIDOR</text>
+        </svg>
+      </div>
+      <div class="hours rv rv-d3">
+        <div class="hour"><span class="mono">Business Hours</span><strong>Mon–Fri · 9:00–17:00 ET</strong></div>
+        <div class="hour"><span class="mono">Response Posture</span><strong>24/7 Mission Support</strong></div>
+      </div>
+    </div>
+
+    <form class="form rv rv-d2" action="mailto:info@pchakconsulting.com" method="post" enctype="text/plain">
+      <div class="form-head">
+        <span class="mono">Inquiry Form</span>
+        <span class="mono" style="color:var(--red)">SECURE-CHANNEL</span>
+      </div>
+      <div class="form-body">
+        <div class="field"><label for="f-name">Full Name</label><input id="f-name" name="name" type="text" required placeholder="Jane Smith"></div>
+        <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" type="text" placeholder="Agency / Company"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="you@agency.gov"></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(555) 000-0000"></div>
+        <div class="field"><label for="f-type">I Am A…</label>
+          <select id="f-type" name="inquirer">
+            <option>Contracting Officer</option><option>Prime Contractor / Teaming Partner</option>
+            <option>Commercial Buyer</option><option>Supplier / Vendor</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-topic">Area of Interest</label>
+          <select id="f-topic" name="topic">
+            <option>Cybersecurity</option><option>IT Solutions & Hardware</option><option>Defense Technologies / DLA Supply</option>
+            <option>Aerospace / Space</option><option>Industrial / Fluid Control</option><option>Logistics & Facility Services</option>
+            <option>Teaming / Subcontracting</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field full"><label for="f-msg">Your Requirement</label><textarea id="f-msg" name="message" rows="5" placeholder="Tell us about the mission — solicitation number, scope, timeline, operating conditions…"></textarea></div>
+      </div>
+      <div class="form-foot">
+        <button type="submit" class="btn btn-solid" style="justify-content:center"><span>Transmit Inquiry</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CAREERS NOTE -->
+<section class="sec-tight sec-dark2">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap">
+    <div>
+      <span class="kicker mono rv" style="color:var(--red);display:flex;align-items:center;gap:.9rem"><span class="tick"></span>Careers</span>
+      <h2 class="title rv" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-top:.8rem">Builders wanted. <em>Standards required.</em></h2>
+      <p class="rv rv-d1" style="color:var(--mut);max-width:52ch;margin-top:.8rem">We're always interested in engineers, security professionals, and delivery leads who hold themselves to a zero-defect standard. Introduce yourself.</p>
+    </div>
+    <a href="mailto:info@pchakconsulting.com?subject=Careers%20—%20Introduction" class="btn btn-ghost rv rv-d2"><span>Introduce Yourself</span><span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="capabilities.html#cyber">Cybersecurity</a>
+      <a href="capabilities.html#it">IT Solutions</a>
+      <a href="capabilities.html#defense">Defense & Aerospace</a>
+      <a href="products.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

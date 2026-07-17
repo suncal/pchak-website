@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Assurance — P CHAK CONSULTING</title>
+<meta name="description" content="Quality is not a phase — it's the operating system. P CHAK CONSULTING's zero-defect doctrine: documented quality management, verification gates, security-first engineering, continuous improvement.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+.gate{display:grid;grid-template-columns:110px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);align-items:start}
+.gate:last-child{border-bottom:none}
+.gate .g-num{font-family:var(--font-d);font-weight:700;font-size:2.6rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(245,243,238,.25);transition:all .4s}
+.gate:hover .g-num{color:var(--red);-webkit-text-stroke-color:var(--red)}
+.gate h3{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin-bottom:.5rem}
+.gate p{color:var(--mut);max-width:62ch}
+.gate .chips{margin-top:1rem}
+@media(max-width:900px){.quality-grid{grid-template-columns:1fr}.gate{grid-template-columns:1fr;gap:.6rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><span>Quality Assurance</span></div>
+    <h1 data-split>Quality is not a phase. <em>It's the operating system.</em></h1>
+    <p class="lede rv rv-d2">Our commitment to the highest standards is what makes P CHAK CONSULTING a trusted and respected name. Reliability and security aren't features we add — they're the baseline every solution is built on.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Doctrine</span><strong>Zero Defect</strong></div>
+      <div><span class="mono">Method</span><strong>Gated Verification</strong></div>
+      <div><span class="mono">Metric</span><strong>Measured Outcomes</strong></div>
+    </div>
+    <span class="ph-num">04</span>
+  </div>
+</header>
+
+<!-- RING + POINTS -->
+<section class="sec">
+  <div class="wrap quality-grid">
+    <div class="q-ring rv" data-tilt>
+      <svg viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="192" stroke="rgba(245,243,238,.12)"/>
+        <circle cx="200" cy="200" r="160" stroke="rgba(245,243,238,.08)" stroke-dasharray="4 8"/>
+        <circle cx="200" cy="200" r="192" stroke="#E8362D" stroke-width="2" stroke-dasharray="90 1116" stroke-linecap="round"/>
+        <g fill="rgba(245,243,238,.4)" font-family="IBM Plex Mono" font-size="9" letter-spacing="3">
+          <text x="200" y="24" text-anchor="middle">QUALITY ASSURANCE</text>
+          <text x="200" y="386" text-anchor="middle">TRUSTED DELIVERY</text>
+        </g>
+        <g stroke="rgba(245,243,238,.25)"><path d="M200 8v14M200 378v14M8 200h14M378 200h14"/></g>
+      </svg>
+      <div class="q-center">
+        <span class="mono">QA Doctrine</span>
+        <span class="big">Zero<br>Defect</span>
+        <span class="mono" style="color:var(--mut)">Mindset · Method · Metric</span>
+      </div>
+    </div>
+    <div>
+      <div class="kicker mono rv" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>01 — The Commitments</div>
+      <h2 class="title rv">Four commitments.<br><em>No exceptions.</em></h2>
+      <div class="q-points rv rv-d2" style="margin-top:2.4rem">
+        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Documented quality management across every engagement</div>
+        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Verification & validation gates before every delivery</div>
+        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Security-first engineering, from design review to deployment</div>
+        <div class="q-point"><span class="chk"><svg viewBox="0 0 12 12"><path d="M1.5 6.5l3 3 6-7"/></svg></span>Continuous improvement driven by measured outcomes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GATES -->
+<section class="sec sec-dark2">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — Verification Gates</span>
+        <h2 class="title" style="margin-top:1.2rem">Nothing ships <em>unverified.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">Every deliverable passes five gates before it reaches you</span>
+    </div>
+    <div>
+      <div class="gate rv"><span class="g-num">G1</span><div><h3>Requirement Fidelity</h3><p>The requirement is restated, confirmed, and traced before work begins. Ambiguity is resolved at the source — not discovered at delivery.</p><div class="chips"><span>Requirements Traceability</span><span>Scope Confirmation</span></div></div></div>
+      <div class="gate rv"><span class="g-num">G2</span><div><h3>Design Review</h3><p>Solutions and specifications are reviewed against the mission, the environment, and the failure modes — with security considered at design time, not bolted on.</p><div class="chips"><span>Design Verification</span><span>Security Review</span><span>Failure Mode Analysis</span></div></div></div>
+      <div class="gate rv"><span class="g-num">G3</span><div><h3>Source & Build Verification</h3><p>Components are sourced from qualified channels and verified on receipt. Work products are inspected against specification — dimensions, ratings, configurations, certificates.</p><div class="chips"><span>Incoming Inspection</span><span>Provenance Checks</span><span>Configuration Audit</span></div></div></div>
+      <div class="gate rv"><span class="g-num">G4</span><div><h3>Delivery Validation</h3><p>Before handoff, deliverables are validated end-to-end against acceptance criteria — with documentation packages that survive any audit.</p><div class="chips"><span>Acceptance Testing</span><span>Full Documentation</span><span>Traceability Records</span></div></div></div>
+      <div class="gate rv"><span class="g-num">G5</span><div><h3>Outcome Review</h3><p>After delivery, we measure what the mission actually gained and feed it back into the process. Continuous improvement is scheduled, not aspirational.</p><div class="chips"><span>Performance Metrics</span><span>Lessons Captured</span><span>Process Updates</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — Why It Matters</span>
+        <h2 class="title" style="margin-top:1.2rem">Proven where it <em>counts.</em></h2>
+      </div>
+    </div>
+    <div class="why-list">
+      <div class="why-row rv"><span class="mono">01</span><h3>Federal-Grade Discipline</h3><p>Our DLA deliveries met military specification with full traceability — the same rigor applies to every commercial order.</p><span class="cross"></span></div>
+      <div class="why-row rv"><span class="mono">02</span><h3>Documentation That Survives Audits</h3><p>Certs, traceability, and compliance records ship with the work — because in regulated environments, paper is part of the product.</p><span class="cross"></span></div>
+      <div class="why-row rv"><span class="mono">03</span><h3>Security as a Quality Attribute</h3><p>We treat security defects as quality defects — found in design review, not in the news.</p><span class="cross"></span></div>
+      <div class="why-row rv"><span class="mono">04</span><h3>Accountability at the Top</h3><p>Quality escalations go straight to the CEO. In a firm our size, there's nowhere for a defect to hide.</p><span class="cross"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Put Us to the Test</span>
+    <h2 data-split>Hold your next vendor <em>to this standard.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Start a Conversation</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" class="btn btn-ghost" download><span>Capability Statement</span><span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="capabilities.html#cyber">Cybersecurity</a>
+      <a href="capabilities.html#it">IT Solutions</a>
+      <a href="capabilities.html#defense">Defense & Aerospace</a>
+      <a href="products.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
