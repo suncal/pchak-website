@@ -127,6 +127,13 @@ const io = new IntersectionObserver(es=>es.forEach(e=>{
 }), {threshold:.12, rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.rv, .split, .big-word').forEach(el=>io.observe(el));
 
+/* reveal fallback: if IO/rAF are throttled, force-show what's in view */
+setTimeout(()=>{
+  document.querySelectorAll('.rv:not(.in), .split:not(.in)').forEach(el=>{
+    if(el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+  });
+}, 1400);
+
 /* ---------- counters ---------- */
 const ioC = new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting) return; ioC.unobserve(e.target);
