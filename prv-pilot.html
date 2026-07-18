@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilot-Operated Pressure Relief Valves — P CHAK CONSULTING</title>
+<meta name="description" content="Pilot-operated pressure relief valve engineering from P CHAK CONSULTING: interactive dome-loading simulator, seat-tightness advantages, modulating pilots, and honest specification trade-offs.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=6">
+<style>
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+/* interactive lab */
+.lab{border:1px solid var(--line);background:var(--white);display:grid;grid-template-columns:1.25fr .75fr}
+.lab-canvas{position:relative;min-height:440px;border-right:1px solid var(--line)}
+.lab-canvas canvas{position:absolute;inset:0;width:100%;height:100%}
+.lab-panel{padding:2rem;display:flex;flex-direction:column;gap:1.4rem;background:var(--ink-2)}
+.lab-panel .mono{color:var(--red)}
+.readout{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:.55rem 0}
+.readout .k{font-size:.8rem;color:var(--mut)}
+.readout .v{font-family:var(--font-m);font-size:.92rem;font-weight:500}
+.readout .v.red{color:var(--red)}
+.lab-slider{display:flex;flex-direction:column;gap:.5rem}
+.lab-slider label{font-family:var(--font-m);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.lab-slider input[type=range]{width:100%;accent-color:var(--red);cursor:pointer}
+.state-chip{font-family:var(--font-m);font-size:.8rem;letter-spacing:.14em;padding:.7rem 1rem;border:1px solid var(--line);text-align:center;transition:all .3s}
+.state-chip.hot{background:var(--red);color:#fff;border-color:var(--red)}
+.lab-note{font-size:.8rem;color:var(--mut);line-height:1.6}
+/* data tables */
+.eng-table{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:.88rem}
+.eng-table th{font-family:var(--font-m);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:var(--ink-2)}
+.eng-table td{padding:.7rem 1.1rem;border-bottom:1px solid var(--line)}
+.eng-table td:first-child{font-family:var(--font-m);font-size:.8rem;color:var(--red)}
+.eng-table tbody tr:hover{background:var(--ink-3)}
+.tbl-wrap{overflow-x:auto}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab-canvas{min-height:340px;border-right:none;border-bottom:1px solid var(--line)}.ctx-grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="flow"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="products.html">Products</a><span class="sep">/</span><span>Pilot-Operated PRVs</span></div>
+    <h1 data-split>The valve that grips tighter <em>as pressure rises.</em></h1>
+    <p class="lede rv rv-d2">Pilot-operated relief valves invert the spring valve's weakness: system pressure itself holds the seat closed — harder and harder — until the pilot says now. Operate one below and watch the paradox work.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Architecture</span><strong>Main Valve + Pilot + Dome</strong></div>
+      <div><span class="mono">Signature</span><strong>Tight to ~95% of Set</strong></div>
+      <div><span class="mono">Best For</span><strong>High Pressure · Back-Pressure · Big Capacity</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — Engineering Context</span>
+      <span class="mono" style="color:var(--mut)">What this device really does</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>Use the enemy's strength against him: the pilot-operated valve seals with <em>the very pressure it guards against.</em></p>
+      <div class="body rv rv-d2">
+        <p>A pilot-operated PRV has two brains. The <strong>main valve</strong> is a big, simple piston: system pressure below, dome pressure above. The <strong>pilot</strong> is a small precision valve that decides what the dome sees. In normal service the dome is charged with system pressure — and since the dome area beats the seat area, rising pressure clamps the seat tighter. Simmer, the spring valve's chronic ailment, simply doesn't happen.</p>
+<p>At set pressure the pilot flips: it vents the dome, the force balance collapses, and the main valve opens fully in one clean stroke. Reseat is equally crisp. The price of this elegance is small-passage plumbing — sensing lines and pilots that must be kept clean, warm, and honest, which is why service conditions decide whether this architecture is brilliant or troublesome.</p>
+<p>The simulator below models dome loading live — watch the seating force climb with pressure until the trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE LAB -->
+<section class="sec sec-dark2" id="lab">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — Interactive Lab</span>
+        <h2 class="title" style="margin-top:1.2rem">Watch the dome <em>do the work.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">Dome loading, pilot trip, and crisp reseat — modeled live</span>
+    </div>
+    <div class="lab rv">
+      <div class="lab-canvas"><canvas id="pilotCanvas"></canvas></div>
+      <div class="lab-panel">
+        <span class="mono">PILOT-OPERATED SIMULATOR — SET 100 PSIG</span>
+        <div class="lab-slider">
+          <label for="ppSlider">System Pressure</label>
+          <input type="range" id="ppSlider" min="0" max="120" value="70" step="0.5">
+        </div>
+        <div id="ppState" class="state-chip">DOME LOADED — SEAT TIGHT</div>
+        <div>
+          <div class="readout"><span class="k">System Pressure</span><span class="v" id="ppP">70.0 psig</span></div>
+          <div class="readout"><span class="k">Dome Pressure</span><span class="v" id="ppDome">70.0 psig</span></div>
+          <div class="readout"><span class="k">Net Seating Force</span><span class="v" id="ppForce">HIGH</span></div>
+          <div class="readout"><span class="k">Main Valve</span><span class="v" id="ppMain">CLOSED</span></div>
+        </div>
+        <p class="lab-note">Watch the paradox: as you raise pressure, the dome (fed by the sensing line) presses the piston <b>tighter</b> onto the seat — because dome area exceeds seat area. At <b>100 psig</b> the pilot trips, vents the dome, and the main valve flies open. Reseat is crisp: <b>~97 psig</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING DATA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — Engineering Data</span>
+        <h2 class="title" style="margin-top:1.2rem">Why engineers reach for <em>the pilot.</em></h2>
+      </div>
+    </div>
+    <div class="spec-grid rv">
+      <div class="spec"><span class="mono">SEAT TIGHTNESS</span><h4>Operate to ~95% of Set</h4><p>Because system pressure loads the dome, seating force rises with pressure — pilot valves stay bubble-tight where spring valves would simmer. That's the headline advantage.</p></div>
+      <div class="spec"><span class="mono">BACK-PRESSURE</span><h4>Largely Immune</h4><p>The dome, not a spring, holds the seat — so variable back-pressure doesn't shift the set point the way it does on conventional designs. Critical for shared relief headers.</p></div>
+      <div class="spec"><span class="mono">CAPACITY</span><h4>Big Bore Economics</h4><p>Full-bore main valves deliver large capacity from compact hardware; one pilot design can serve a family of main-valve sizes with a common spare-parts strategy.</p></div>
+      <div class="spec"><span class="mono">BLOWDOWN</span><h4>Short & Adjustable</h4><p>Typical reseat within a few percent of set — minimizing product loss per relief event and enabling operation close to set pressure.</p></div>
+      <div class="spec"><span class="mono">TRADE-OFFS</span><h4>Know the Limits</h4><p>Sensing lines can block or freeze; dirty or polymerizing services need filters or purges; pilots add small-part complexity. Honest specification weighs both columns.</p></div>
+      <div class="spec"><span class="mono">MODES</span><h4>Pop or Modulating</h4><p>Snap-action pilots for maximum capacity on demand; modulating pilots open only as far as needed — reducing flare/vent loads and noise. Selected per service.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD GUIDE -->
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>04 — Field Guide</span>
+        <h2 class="title" style="margin-top:1.2rem">Specify like <em>an insider.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>When does a pilot-operated valve beat a spring valve?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Three classic cases: operating pressure must run close to set (pilot valves hold tight to ~95% of set), back-pressure is high or variable (dome loading is immune to it), and large capacities at high pressure where direct springs become enormous. If none of those apply, the simpler spring valve usually wins on cost and robustness — we'll tell you which side of the line your service falls on.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>How does the dome make the seat tighter as pressure rises?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>The sensing line feeds system pressure to the dome above the piston. Because the dome-side area is larger than the seat-side area, the same pressure produces more downward force than upward — so net seating force grows with system pressure. It's an elegant inversion: the threat itself powers the defense, right up until the pilot decides it's time to let go.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>What is a modulating pilot and why do flare systems love it?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>A snap-action pilot vents the dome completely — full flow instantly. A modulating pilot opens the main valve only enough to hold pressure at set, relieving just the excess. In flare and vent-header systems, that difference cascades: smaller loads, less noise, fewer knock-on relief events. It's a system-level economy bought at the valve.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>What keeps pilot valves out of some services?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Anything that can block the pilot's small passages: dirty, viscous, polymerizing, or hydrate/freeze-prone media. Mitigations exist — filters, heat tracing, purge flows, remote pressure pickup — but they add scope that must be honestly specified. Where mitigation gets elaborate, a balanced-bellows spring valve is often the wiser answer.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">05</span>Can pilot valves be tested in place?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Many designs allow set-point verification through the pilot without lifting the main valve — using a field test connection — which shortens outages and keeps the vessel protected during testing. If in-service testability matters to your maintenance strategy, say so on the datasheet: it shapes the pilot configuration we quote.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST + RELATED -->
+<section class="sec-tight">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)">
+    <div class="rv">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Datasheet Checklist — what we ask before quoting</span>
+      <div class="chips"><span>Set Pressure & Operating Ratio</span><span>Media Cleanliness / Freeze Risk</span><span>Back-Pressure Profile</span><span>Required Capacity</span><span>Pop vs Modulating Action</span><span>Sensing Point (Local / Remote)</span><span>Field-Test Requirements</span><span>Materials & Temperature</span><span>Code Stamp Requirements</span></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Related</span>
+      <div class="c-rows" style="border-top:1px solid var(--line)">
+        <a class="c-row" href="prv-spring.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Spring-Loaded PRVs</span></a>
+        <a class="c-row" href="fluid-control.html" data-cursor="VIEW"><span class="mono" style="width:auto">DOMAIN</span><span style="font-family:var(--font-d);font-weight:500">Fluid Control Overview</span></a>
+        <a class="c-row" href="pressure-switches.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Pressure Switches</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready to specify?</span>
+    <h2 data-split>Bring us the hard service. <em>That's what pilots are for.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Request a Quote</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="tel:+18009882863" class="btn btn-ghost"><span>(800) 988-2863</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+<script>
+
+(function(){
+  const cv=document.getElementById('pilotCanvas'); if(!cv)return;
+  const ctx=cv.getContext('2d'), dpr=Math.min(devicePixelRatio||1,2);
+  const s=document.getElementById('ppSlider');
+  const roP=document.getElementById('ppP'), roD=document.getElementById('ppDome'),
+        roF=document.getElementById('ppForce'), roM=document.getElementById('ppMain'),
+        st=document.getElementById('ppState');
+  const SET=100, RESEAT=97;
+  let open=false, lift=0, dome=70, W=0,H=0,t=0;
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  const INK=a=>'rgba(11,15,23,'+a+')', RED=a=>'rgba(232,54,45,'+a+')';
+  function draw(){
+    t+=.05;
+    const p=+s.value;
+    if(!open && p>=SET) open=true;
+    if(open && p<=RESEAT) open=false;
+    dome += ((open?0:p)-dome)*.12;
+    lift += ((open?1:0)-lift)*.12;
+    roP.textContent=p.toFixed(1)+' psig';
+    roD.textContent=dome.toFixed(1)+' psig';
+    roF.textContent=open?'VENTED':(p>70?'VERY HIGH':p>30?'HIGH':'MODERATE');
+    roM.textContent=open?'OPEN — FULL FLOW':'CLOSED';
+    st.textContent=open?'PILOT TRIPPED — RELIEVING':'DOME LOADED — SEAT TIGHT';
+    st.classList.toggle('hot',open);
+    ctx.clearRect(0,0,W,H);
+    const cx=W*.42, base=H*.84, bw=Math.min(W,H)*.4;
+    ctx.lineWidth=2;ctx.strokeStyle=INK(.75);
+    // main valve body
+    ctx.strokeRect(cx-bw*.3, base-120, bw*.6, 120);
+    // inlet
+    ctx.strokeRect(cx-bw*.14, base, bw*.28, 26);
+    // outlet
+    ctx.strokeRect(cx+bw*.3, base-100, bw*.34, 34);
+    // dome
+    ctx.strokeRect(cx-bw*.3, base-214, bw*.6, 70);
+    // dome fill (pressure shading)
+    ctx.fillStyle=RED(.05+ (dome/120)*.3);
+    ctx.fillRect(cx-bw*.3+2, base-212, bw*.6-4, 66);
+    // piston
+    const py=base-152+ (1-lift)*0 - lift*34;
+    ctx.fillStyle=INK(.8);
+    ctx.fillRect(cx-bw*.26, py, bw*.52, 10);
+    ctx.strokeStyle=INK(.5);ctx.beginPath();ctx.moveTo(cx,py+10);ctx.lineTo(cx,base-104);ctx.stroke();
+    ctx.fillRect(cx-bw*.12, base-104, bw*.24, 7);
+    // seat
+    ctx.fillStyle=RED(.9);
+    ctx.fillRect(cx-bw*.12, base-92, 5,4);ctx.fillRect(cx+bw*.12-5, base-92, 5,4);
+    // pilot assembly (right top)
+    const px=cx+bw*.52, pyy=base-214;
+    ctx.strokeStyle=INK(.7);
+    ctx.strokeRect(px, pyy, bw*.2, 44);
+    ctx.font='600 9px "IBM Plex Mono",monospace';ctx.fillStyle=INK(.55);
+    ctx.fillText('PILOT', px+4, pyy-6);
+    ctx.fillText('DOME', cx-bw*.28, base-220);
+    ctx.fillText('PISTON', cx+bw*.28+6, py+8);
+    ctx.fillText('INLET', cx-bw*.1, base+40);
+    ctx.fillText('OUTLET', cx+bw*.34, base-108);
+    // sensing line: inlet -> pilot
+    ctx.setLineDash([4,4]);ctx.strokeStyle=RED(.6);
+    ctx.beginPath();
+    ctx.moveTo(cx+bw*.14, base+13);
+    ctx.lineTo(cx+bw*.8, base+13);
+    ctx.lineTo(cx+bw*.8, pyy+22);
+    ctx.lineTo(px+bw*.2, pyy+22);
+    ctx.stroke();
+    // pilot->dome line
+    ctx.beginPath();
+    ctx.moveTo(px, pyy+22);ctx.lineTo(cx+bw*.3, pyy+22+30);
+    ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=INK(.45);
+    ctx.fillText('SENSING LINE', cx+bw*.45, base+34);
+    // dome vent when open
+    if(open){
+      for(let k=0;k<4;k++){
+        const u=((t*.7)+(k/4))%1;
+        ctx.fillStyle=RED(.6*(1-u));
+        ctx.beginPath();ctx.arc(px+bw*.1, pyy-8-u*26, 2.6,0,Math.PI*2);ctx.fill();
+      }
+      // main flow
+      for(let k=0;k<6;k++){
+        const u=((t*.8)+(k/6))%1;
+        ctx.fillStyle=RED(.3+.5*(1-u));
+        ctx.beginPath();ctx.arc(cx+bw*.32+(bw*.3)*u, base-84, 3*(1-u*.4),0,Math.PI*2);ctx.fill();
+      }
+    }
+    // system fluid
+    const ph=Math.min(24, p/120*24);
+    ctx.fillStyle=RED(.18);
+    ctx.fillRect(cx-bw*.14+2, base+24-ph, bw*.28-4, ph);
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

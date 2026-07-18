@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring-Loaded Pressure Relief Valves — P CHAK CONSULTING</title>
+<meta name="description" content="Spring-loaded pressure relief valve supply and engineering from P CHAK CONSULTING: interactive PRV simulator, API 526 orifice data, ASME tolerances, blowdown, and specification guidance.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=6">
+<style>
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+/* interactive lab */
+.lab{border:1px solid var(--line);background:var(--white);display:grid;grid-template-columns:1.25fr .75fr}
+.lab-canvas{position:relative;min-height:440px;border-right:1px solid var(--line)}
+.lab-canvas canvas{position:absolute;inset:0;width:100%;height:100%}
+.lab-panel{padding:2rem;display:flex;flex-direction:column;gap:1.4rem;background:var(--ink-2)}
+.lab-panel .mono{color:var(--red)}
+.readout{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:.55rem 0}
+.readout .k{font-size:.8rem;color:var(--mut)}
+.readout .v{font-family:var(--font-m);font-size:.92rem;font-weight:500}
+.readout .v.red{color:var(--red)}
+.lab-slider{display:flex;flex-direction:column;gap:.5rem}
+.lab-slider label{font-family:var(--font-m);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.lab-slider input[type=range]{width:100%;accent-color:var(--red);cursor:pointer}
+.state-chip{font-family:var(--font-m);font-size:.8rem;letter-spacing:.14em;padding:.7rem 1rem;border:1px solid var(--line);text-align:center;transition:all .3s}
+.state-chip.hot{background:var(--red);color:#fff;border-color:var(--red)}
+.lab-note{font-size:.8rem;color:var(--mut);line-height:1.6}
+/* data tables */
+.eng-table{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:.88rem}
+.eng-table th{font-family:var(--font-m);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:var(--ink-2)}
+.eng-table td{padding:.7rem 1.1rem;border-bottom:1px solid var(--line)}
+.eng-table td:first-child{font-family:var(--font-m);font-size:.8rem;color:var(--red)}
+.eng-table tbody tr:hover{background:var(--ink-3)}
+.tbl-wrap{overflow-x:auto}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab-canvas{min-height:340px;border-right:none;border-bottom:1px solid var(--line)}.ctx-grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="gauge"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="products.html">Products</a><span class="sep">/</span><span>Spring-Loaded PRVs</span></div>
+    <h1 data-split>The spring that argues <em>with physics — and wins.</em></h1>
+    <p class="lede rv rv-d2">The spring-loaded pressure relief valve is industry's default guardian: a calibrated spring holding a disc against system pressure, ready to open the instant pressure wins. We supply them specified to your service — and here, we let you operate one.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Governing Codes</span><strong>ASME BPVC · API 520/526/527</strong></div>
+      <div><span class="mono">Action</span><strong>Direct Spring — Pop / Modulating</strong></div>
+      <div><span class="mono">Supply Model</span><strong>Specified · Verified · Documented</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — Engineering Context</span>
+      <span class="mono" style="color:var(--mut)">What this device really does</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>One calibrated spring, one machined seat, zero electronics. The most trusted safety device in industry is trusted <em>because</em> it's that simple.</p>
+      <div class="body rv rv-d2">
+        <p>Everything about a spring-loaded PRV is a force balance: process pressure pushes the disc up, the spring pushes it down. Below set pressure, the spring wins and the seat stays tight. At set pressure, forces equalize — and the huddling chamber turns that equilibrium into decisive <strong>pop action</strong>, snapping the valve to lift instead of letting it dribble.</p>
+<p>The subtleties are where engineering lives: <strong>blowdown</strong> (the valve reseats below set, not at it), <strong>simmer</strong> (seat leakage as operating pressure crowds set), and <strong>back-pressure sensitivity</strong> (downstream pressure adds to the spring's side of the argument). Each one is a specification decision we resolve from your datasheet before anything is quoted.</p>
+<p>Try all three in the simulator below — it models the real open/reseat hysteresis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE LAB -->
+<section class="sec sec-dark2" id="lab">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — Interactive Lab</span>
+        <h2 class="title" style="margin-top:1.2rem">Operate the valve <em>yourself.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">A live force-balance model — pop, full lift, and blowdown hysteresis included</span>
+    </div>
+    <div class="lab rv">
+      <div class="lab-canvas"><canvas id="prvCanvas"></canvas></div>
+      <div class="lab-panel">
+        <span class="mono">PRV SIMULATOR — SET PRESSURE 100 PSIG</span>
+        <div class="lab-slider">
+          <label for="pSlider">System Pressure — drag to raise & lower</label>
+          <input type="range" id="pSlider" min="0" max="120" value="60" step="0.5">
+        </div>
+        <div id="prvState" class="state-chip">SEATED</div>
+        <div>
+          <div class="readout"><span class="k">System Pressure</span><span class="v" id="roP">60.0 psig</span></div>
+          <div class="readout"><span class="k">% of Set Pressure</span><span class="v" id="roPct">60%</span></div>
+          <div class="readout"><span class="k">Disc Lift</span><span class="v" id="roLift">0%</span></div>
+          <div class="readout"><span class="k">Reseat (blowdown 7%)</span><span class="v">93 psig</span></div>
+        </div>
+        <p class="lab-note">Raise pressure past <b>100 psig</b> and the spring loses the argument — the valve opens, reaching full lift at 10% overpressure. Now lower it slowly: it stays open until <b>93 psig</b>. That gap is <b>blowdown</b> — real hysteresis, modeled live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING DATA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — Engineering Data</span>
+        <h2 class="title" style="margin-top:1.2rem">The numbers engineers <em>actually use.</em></h2>
+      </div>
+    </div>
+    <div class="tbl-wrap rv"><table class="eng-table">
+      <thead><tr><th>API 526 Orifice</th><th>Effective Area (in²)</th><th>Typical Service Scale</th></tr></thead>
+      <tbody>
+        <tr><td>D</td><td>0.110</td><td>Small instrument & utility duty</td></tr>
+        <tr><td>E</td><td>0.196</td><td>Small process lines</td></tr>
+        <tr><td>F</td><td>0.307</td><td>Light process relief</td></tr>
+        <tr><td>G</td><td>0.503</td><td>General process duty</td></tr>
+        <tr><td>H</td><td>0.785</td><td>General process duty</td></tr>
+        <tr><td>J</td><td>1.287</td><td>Mid-capacity systems</td></tr>
+        <tr><td>K</td><td>1.838</td><td>Mid-capacity systems</td></tr>
+        <tr><td>L</td><td>2.853</td><td>Larger vessels & headers</td></tr>
+        <tr><td>M / N / P</td><td>3.60 / 4.34 / 6.38</td><td>Large process equipment</td></tr>
+        <tr><td>Q / R / T</td><td>11.05 / 16.0 / 26.0</td><td>Maximum-capacity applications</td></tr>
+      </tbody>
+    </table></div>
+    <p class="rv" style="color:var(--mut);font-size:.85rem;margin-top:1rem">Standard orifice designations per API 526. Required area comes first — from the governing relief scenario per API 520 — then the letter is chosen to meet or exceed it.</p>
+    <div class="spec-grid rv" style="margin-top:2.5rem">
+      <div class="spec"><span class="mono">ASME TOLERANCE</span><h4>Set-Pressure Accuracy</h4><p>±2 psi for set pressures up to 70 psig; ±3% above 70 psig — the code tolerance a certified valve must hold at test.</p></div>
+      <div class="spec"><span class="mono">BACK-PRESSURE</span><h4>Conventional Limit ≈ 10%</h4><p>Built-up back-pressure above ~10% of set destabilizes a conventional spring valve — beyond that, specify balanced-bellows or pilot-operated designs.</p></div>
+      <div class="spec"><span class="mono">BLOWDOWN</span><h4>Typical 7–10% (Gas)</h4><p>The pressure drop below set required to reseat. Too little invites chatter; too much wastes product and hold-time. It's a specification, not an accident.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD GUIDE -->
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>04 — Field Guide</span>
+        <h2 class="title" style="margin-top:1.2rem">Specify like <em>an insider.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>Why does the operating pressure need margin below set pressure?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>A spring valve begins to lose seat tightness as system pressure approaches set — typically noticeable above 90% of set (simmer). Good practice keeps normal operating pressure at or below ~90% of set so the valve stays bubble-tight in service. If your process must run closer than that, a pilot-operated valve — which seats tighter as pressure rises — is usually the right answer.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>What actually determines the required orifice size?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>The governing overpressure scenario: blocked discharge, external fire, control-valve failure, thermal expansion — whichever demands the greatest relieving capacity per API 520/521 methodology. You size for that flow at allowable overpressure, then select the API 526 letter orifice that meets or exceeds the required area. Sizing from pipe diameter is how systems end up unprotected.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>Gas service vs liquid service — what changes?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Nearly everything about the trim. Gas valves reach full lift with 'pop' action driven by expansion in the huddling chamber; liquid valves open proportionally and historically required 25% overpressure until liquid-certified trims arrived. Specifying a gas trim in liquid service (or vice versa) yields capacity shortfalls and instability — one more reason the datasheet asks about the media.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>What causes premature leakage at the seat?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>The usual suspects: operating too close to set, dirt or scale on the seating surfaces, piping-imposed stresses on the valve body, and chatter damage from an earlier oversized-valve event. Metal-seated valves have finite seat-tightness (defined per API 527 testing); resilient (soft) seats hold tighter but carry temperature and chemistry limits — a selection trade-off, not an afterthought.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">05</span>Do relief valves need periodic testing?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Yes — set-pressure verification and reseat testing at intervals set by jurisdiction, insurer, and service severity. A relief valve is the layer of protection that works when everything else has failed; an untested one is a hope, not a safeguard. We support clients with spares strategy and documented replacement programs so testing never leaves a vessel unprotected.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST + RELATED -->
+<section class="sec-tight">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)">
+    <div class="rv">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Datasheet Checklist — what we ask before quoting</span>
+      <div class="chips"><span>Set Pressure & MAWP</span><span>Governing Relief Scenario</span><span>Required Capacity</span><span>Media & Phase</span><span>Temperature Envelope</span><span>Back-Pressure (Built-up + Superimposed)</span><span>Inlet/Outlet Sizes & Ratings</span><span>Material & Trim Class</span><span>Code Stamp Requirements</span></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Related</span>
+      <div class="c-rows" style="border-top:1px solid var(--line)">
+        <a class="c-row" href="fluid-control.html" data-cursor="VIEW"><span class="mono" style="width:auto">DOMAIN</span><span style="font-family:var(--font-d);font-weight:500">Fluid Control Overview</span></a>
+        <a class="c-row" href="prv-pilot.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Pilot-Operated Valves</span></a>
+        <a class="c-row" href="pressure-switches.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Pressure Switches</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready to specify?</span>
+    <h2 data-split>Send the datasheet. <em>We'll argue with physics for you.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Request a Quote</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="tel:+18009882863" class="btn btn-ghost"><span>(800) 988-2863</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+<script>
+
+(function(){
+  const cv=document.getElementById('prvCanvas'); if(!cv)return;
+  const ctx=cv.getContext('2d'), dpr=Math.min(devicePixelRatio||1,2);
+  const slider=document.getElementById('pSlider');
+  const roP=document.getElementById('roP'), roPct=document.getElementById('roPct'),
+        roLift=document.getElementById('roLift'), st=document.getElementById('prvState');
+  const SET=100, FULL=110, RESEAT=93;
+  let open=false, lift=0, W=0, H=0, t=0;
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  const INK=a=>'rgba(11,15,23,'+a+')', RED=a=>'rgba(232,54,45,'+a+')';
+  function update(){
+    const p=+slider.value;
+    if(!open && p>=SET) open=true;
+    if(open && p<=RESEAT) open=false;
+    const target = open? Math.max(.12, Math.min(1,(p-SET)/(FULL-SET))) : (p>=SET-2&&!open? .04:0);
+    lift += (target-lift)*.15;
+    roP.textContent=p.toFixed(1)+' psig';
+    roPct.textContent=Math.round(p/SET*100)+'%';
+    roLift.textContent=Math.round(lift*100)+'%';
+    let label='SEATED', hot=false;
+    if(open&&lift>.9){label='FULL LIFT — RELIEVING';hot=true;}
+    else if(open){label='RELIEVING';hot=true;}
+    else if(p>=SET-2){label='SIMMER';}
+    st.textContent=label;
+    st.classList.toggle('hot',hot);
+  }
+  function draw(){
+    t+=.05;update();
+    ctx.clearRect(0,0,W,H);
+    const cx=W*.5, base=H*.86, bw=Math.min(W,H)*.34;
+    const l=lift, dy=l*26;
+    ctx.lineWidth=2;ctx.strokeStyle=INK(.75);
+    // inlet nozzle
+    ctx.strokeRect(cx-bw*.18, base-70, bw*.36, 70);
+    // body
+    ctx.beginPath();
+    ctx.moveTo(cx-bw*.5, base-70);ctx.lineTo(cx-bw*.5, base-150);
+    ctx.moveTo(cx+bw*.5, base-70);ctx.lineTo(cx+bw*.5, base-110);
+    ctx.stroke();
+    // outlet (right)
+    ctx.strokeRect(cx+bw*.5, base-150, bw*.42, 40);
+    // bonnet
+    ctx.strokeRect(cx-bw*.28, base-292, bw*.56, 142);
+    // spring (zigzag) — compresses with lift
+    const coils=7, top=base-282, bot=base-165-dy;
+    ctx.beginPath();ctx.strokeStyle=RED(.85);ctx.lineWidth=2;
+    for(let i=0;i<=coils;i++){
+      const y=top+(bot-top)*i/coils, x=cx+((i%2)?1:-1)*bw*.16;
+      i?ctx.lineTo(x,y):ctx.moveTo(cx,top);
+    }
+    ctx.lineTo(cx,bot);ctx.stroke();
+    // stem + disc
+    ctx.strokeStyle=INK(.85);ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(cx,bot);ctx.lineTo(cx,base-150-dy);ctx.stroke();
+    ctx.fillStyle=INK(.85);
+    ctx.fillRect(cx-bw*.22, base-152-dy, bw*.44, 8);
+    // seat marks
+    ctx.fillStyle=RED(.9);
+    ctx.fillRect(cx-bw*.2, base-144, 6, 4);ctx.fillRect(cx+bw*.2-6, base-144, 6, 4);
+    // pressure fluid in inlet (height by pressure)
+    const p=+slider.value, ph=Math.min(66,p/120*66);
+    ctx.fillStyle=RED(.16);
+    ctx.fillRect(cx-bw*.18+2, base-2-ph, bw*.36-4, ph);
+    // flow when open
+    if(l>.08){
+      for(let k=0;k<6;k++){
+        const u=((t*.6)+(k/6))%1;
+        const fx=cx+bw*.5*u*.94+bw*.06, fy=base-130+Math.sin(u*9+t)*4;
+        ctx.fillStyle=RED(.35+.5*(1-u));
+        ctx.beginPath();ctx.arc(cx+bw*.08+ (bw*.84)*u, base-130, 3.2*(1-u*.5),0,Math.PI*2);ctx.fill();
+      }
+      // gap glow at seat
+      ctx.fillStyle=RED(.25);
+      ctx.fillRect(cx-bw*.2, base-150-dy, bw*.4, dy+4);
+    }
+    // labels
+    ctx.font='600 9px "IBM Plex Mono",monospace';ctx.fillStyle=INK(.55);
+    ctx.fillText('SPRING BONNET', cx-bw*.28, base-300);
+    ctx.fillText('DISC', cx+bw*.26, base-146-dy);
+    ctx.fillText('NOZZLE (SYSTEM SIDE)', cx-bw*.18, base+16);
+    ctx.fillText('OUTLET', cx+bw*.52, base-158);
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
