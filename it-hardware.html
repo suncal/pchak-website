@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise & Rugged IT Hardware — P CHAK CONSULTING</title>
+<meta name="description" content="Authorized IT hardware supply from P CHAK CONSULTING — Microsoft, Dell, IBM, Lenovo, Motorola, Cisco. TAA compliance, PoE and rack planning lab, rugged ratings, and lifecycle-aware quoting.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=6">
+<style>
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+/* interactive lab */
+.lab{border:1px solid var(--line);background:var(--white);display:grid;grid-template-columns:1.25fr .75fr}
+.lab-canvas{position:relative;min-height:440px;border-right:1px solid var(--line)}
+.lab-canvas canvas{position:absolute;inset:0;width:100%;height:100%}
+.lab-panel{padding:2rem;display:flex;flex-direction:column;gap:1.4rem;background:var(--ink-2)}
+.lab-panel .mono{color:var(--red)}
+.readout{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:.55rem 0}
+.readout .k{font-size:.8rem;color:var(--mut)}
+.readout .v{font-family:var(--font-m);font-size:.92rem;font-weight:500}
+.readout .v.red{color:var(--red)}
+.lab-slider{display:flex;flex-direction:column;gap:.5rem}
+.lab-slider label{font-family:var(--font-m);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.lab-slider input[type=range]{width:100%;accent-color:var(--red);cursor:pointer}
+.state-chip{font-family:var(--font-m);font-size:.8rem;letter-spacing:.14em;padding:.7rem 1rem;border:1px solid var(--line);text-align:center;transition:all .3s}
+.state-chip.hot{background:var(--red);color:#fff;border-color:var(--red)}
+.lab-note{font-size:.8rem;color:var(--mut);line-height:1.6}
+/* data tables */
+.eng-table{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:.88rem}
+.eng-table th{font-family:var(--font-m);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:var(--ink-2)}
+.eng-table td{padding:.7rem 1.1rem;border-bottom:1px solid var(--line)}
+.eng-table td:first-child{font-family:var(--font-m);font-size:.8rem;color:var(--red)}
+.eng-table tbody tr:hover{background:var(--ink-3)}
+.tbl-wrap{overflow-x:auto}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab-canvas{min-height:340px;border-right:none;border-bottom:1px solid var(--line)}.ctx-grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="network"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="products.html">Products</a><span class="sep">/</span><span>IT Hardware</span></div>
+    <h1 data-split>Six tier-one partners. <em>One accountable supplier.</em></h1>
+    <p class="lede rv rv-d2">Workstations to core switches, land-mobile radios to rugged tablets — supplied through authorized channels with the compliance paperwork federal buyers require and the engineering judgment commercial buyers deserve.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Authorized</span><strong>Microsoft · Dell · IBM · Lenovo · Motorola · Cisco</strong></div>
+      <div><span class="mono">Compliance</span><strong>TAA-Verified Quoting</strong></div>
+      <div><span class="mono">Approach</span><strong>Lifecycle-Aware · Headroom-First</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — Engineering Context</span>
+      <span class="mono" style="color:var(--mut)">How this world actually works</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>Anyone can sell you boxes. The craft is provenance, compliance, and <em>headroom you don't regret.</em></p>
+      <div class="body rv rv-d2">
+        <p>IT hardware supply looks like commodity work until the first audit, the first counterfeit optic, or the first switch that runs out of PoE budget mid-deployment. The craft hides in three quiet disciplines: <strong>channel integrity</strong> (authorized sourcing that keeps warranties, firmware, and licensing provable), <strong>compliance</strong> (TAA origin verified per SKU for federal eligibility), and <strong>capacity engineering</strong> (ports, power, and rack space sized for the organization you're becoming, not the one you were).</p>
+<p>Our six authorized partnerships span the whole deployment: Microsoft licensing, Dell and Lenovo endpoints and servers, IBM enterprise platforms, Cisco networking, and Motorola for the land-mobile radio and rugged communications world where work leaves the carpeted floor. One accountable supplier, one PO, one throat to choke — with delivered federal past performance behind it.</p>
+<p>The planner below is the conversation we have before any quote: slide your headcount and watch what it really takes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark2" id="lab">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — Interactive Lab</span>
+        <h2 class="title" style="margin-top:1.2rem">Size the deployment <em>before you buy it.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">Ports, PoE budget, and rack units — computed live from your endpoint count</span>
+    </div>
+    <div class="lab rv">
+      <div class="lab-canvas"><canvas id="rackCanvas"></canvas></div>
+      <div class="lab-panel">
+        <span class="mono">DEPLOYMENT PLANNER — ACCESS LAYER</span>
+        <div class="lab-slider">
+          <label for="epSlider">Endpoints (users + devices) — <span id="epVal">120</span></label>
+          <input type="range" id="epSlider" min="10" max="500" value="120" step="5">
+        </div>
+        <div class="lab-slider">
+          <label for="grSlider">Growth Headroom — <span id="grVal">25</span>%</label>
+          <input type="range" id="grSlider" min="0" max="100" value="25" step="5">
+        </div>
+        <div id="rackState" class="state-chip">1 RACK — COMFORTABLE</div>
+        <div>
+          <div class="readout"><span class="k">Ports to Provision</span><span class="v" id="roPorts">150</span></div>
+          <div class="readout"><span class="k">48-Port Access Switches</span><span class="v" id="roSw">4</span></div>
+          <div class="readout"><span class="k">PoE Budget (Type 2 @ 30 W avg)</span><span class="v" id="roPoE">4.5 kW</span></div>
+          <div class="readout"><span class="k">Rack Units Consumed</span><span class="v" id="roU">12U of 42U</span></div>
+        </div>
+        <p class="lab-note">Watch the rack build itself as your headcount grows. The quiet lesson: growth headroom decided <b>now</b> is cheap ports; headroom discovered <b>later</b> is a forklift upgrade. This is the conversation we have before quoting a single SKU.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — Engineering Data</span>
+        <h2 class="title" style="margin-top:1.2rem">The tables we quote <em>from.</em></h2>
+      </div>
+    </div>
+    <div class="tbl-wrap rv"><table class="eng-table">
+      <thead><tr><th>PoE Class</th><th>Standard</th><th>Power to Device</th><th>Typical Loads</th></tr></thead>
+      <tbody>
+        <tr><td>Type 1</td><td>802.3af</td><td>~13 W</td><td>Phones, basic APs, badge readers</td></tr>
+        <tr><td>Type 2</td><td>802.3at (PoE+)</td><td>~25.5 W</td><td>Modern APs, PTZ cameras, video phones</td></tr>
+        <tr><td>Type 3</td><td>802.3bt</td><td>~51 W</td><td>Wi-Fi 6E/7 APs, displays, compute nodes</td></tr>
+        <tr><td>Type 4</td><td>802.3bt</td><td>~71 W</td><td>Laptops, kiosks, small switches</td></tr>
+      </tbody>
+    </table></div>
+    <p class="rv" style="color:var(--mut);font-size:.85rem;margin-top:1rem">Per-port power is only half the story — the switch's total PoE budget is the constraint that bites. We size both, with headroom.</p>
+    <div class="tbl-wrap rv" style="margin-top:2rem"><table class="eng-table">
+      <thead><tr><th>IP Rating</th><th>Solids</th><th>Liquids</th><th>Field Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>IP54</td><td>Dust-protected</td><td>Splash-resistant</td><td>Dusty shops, covered outdoor work</td></tr>
+        <tr><td>IP65</td><td>Dust-tight</td><td>Jet-resistant</td><td>Washdown areas, exposed mounts</td></tr>
+        <tr><td>IP67</td><td>Dust-tight</td><td>Temporary immersion</td><td>Field devices, vehicle exteriors</td></tr>
+        <tr><td>MIL-STD-810</td><td colspan="2">Method-by-method environmental testing</td><td>Read the tested methods, not the logo — 810 "compliance" means only what was actually run</td></tr>
+      </tbody>
+    </table></div>
+    <div class="spec-grid rv" style="margin-top:2.5rem">
+      <div class="spec"><span class="mono">CHANNEL</span><h4>Authorized = Provable</h4><p>Six authorized partnerships — Microsoft, Dell, IBM, Lenovo, Motorola, Cisco — mean genuine product, valid warranties, clean firmware provenance, and licensing that survives an audit.</p></div>
+      <div class="spec"><span class="mono">COMPLIANCE</span><h4>TAA Country-of-Origin</h4><p>Federal purchases routinely require Trade Agreements Act–compliant origin. Gray-market gear can't prove it; authorized channel documentation can. We flag TAA status on every federal quote.</p></div>
+      <div class="spec"><span class="mono">LIFECYCLE</span><h4>EOL Is a Date, Not a Surprise</h4><p>Every platform carries end-of-sale and end-of-support dates. We quote with the roadmap visible — so you buy runway, not soon-to-be-orphaned hardware.</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>Field Guide</span>
+        <h2 class="title" style="margin-top:1.2rem">Specify like <em>an insider.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>Why does buying through an authorized channel actually matter?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Three provables: authenticity (no counterfeit or relabeled gear), warranty (OEMs honor authorized-channel serials; gray-market units are routinely refused), and provenance (firmware and licensing that pass security review). For federal buyers there's a fourth: supply-chain documentation that procurement rules increasingly demand. The gray-market discount is real — you pay it back at the first failure or audit.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>What is TAA compliance and when do I need it?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>The Trade Agreements Act restricts many federal purchases to products made or 'substantially transformed' in designated countries. It's a country-of-origin test, enforced at the SKU level — the same model can exist in compliant and non-compliant builds. If your purchase touches a GSA schedule or most federal contracts, TAA status isn't a detail; it's eligibility. We verify it per line item.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>How should I size PoE for a modern deployment?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Sum the realistic per-device draw (a Wi-Fi 7 AP can pull 30–50 W), apply the switch's total PoE budget — not just per-port class — and leave 20–30% headroom for the devices you haven't imagined yet. The classic failure is a switch with plenty of ports and an exhausted power budget: half the ports go dark for new APs.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>What does 'rugged' really mean — and when is it worth it?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Ratings, not adjectives: IP codes for dust and water, MIL-STD-810 methods for shock, vibration, and temperature — with the specific tested methods listed. Rugged costs 2–3× enterprise-grade; field replacement costs downtime, travel, and data gaps. The math usually says: rugged where devices live on vehicles, docks, and job sites; standard everywhere climate-controlled.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">05</span>How do we avoid buying hardware that's about to go end-of-life?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Ask for the lifecycle dates before the price. End-of-sale starts the countdown; end-of-support ends security patches — which for federal and regulated environments effectively ends the asset. We quote with published roadmap status and flag anything inside its final third of life, because a discount on dying hardware is not a discount.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">06</span>Where do Motorola radios fit alongside modern broadband?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Land-mobile radio remains the instant, infrastructure-light, push-to-talk backbone for field and safety operations — it works when cellular doesn't. Broadband adds data, video, and coverage depth. The modern answer is rarely either/or: it's LMR for voice-critical instants, broadband for everything data — engineered together, which is precisely the kind of mixed fleet our partner lineup exists to serve.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)">
+    <div class="rv">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Datasheet Checklist — what we ask before quoting</span>
+      <div class="chips"><span>Endpoint & User Counts</span><span>Growth Horizon</span><span>PoE Device Inventory</span><span>TAA Requirement (Y/N)</span><span>Rugged Environments (IP / 810)</span><span>Licensing Posture</span><span>Lifecycle / Refresh Strategy</span><span>Delivery & Asset-Tagging Needs</span><span>Support & Warranty Terms</span></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Related</span>
+      <div class="c-rows" style="border-top:1px solid var(--line)">
+        <a class="c-row" href="it-solutions.html" data-cursor="VIEW"><span class="mono" style="width:auto">DOMAIN</span><span style="font-family:var(--font-d);font-weight:500">IT Solutions Domain</span></a>
+        <a class="c-row" href="cybersecurity.html" data-cursor="VIEW"><span class="mono" style="width:auto">DOMAIN</span><span style="font-family:var(--font-d);font-weight:500">Cybersecurity</span></a>
+        <a class="c-row" href="mil-spec-hardware.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Mil-Spec Hardware</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready to specify?</span>
+    <h2 data-split>Boxes with provenance. <em>Quotes with judgment.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Request a Quote</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="tel:+18009882863" class="btn btn-ghost"><span>(800) 988-2863</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+<script>
+
+(function(){
+  const cv=document.getElementById('rackCanvas'); if(!cv)return;
+  const ctx=cv.getContext('2d'), dpr=Math.min(devicePixelRatio||1,2);
+  const ep=document.getElementById('epSlider'), gr=document.getElementById('grSlider');
+  const epv=document.getElementById('epVal'), grv=document.getElementById('grVal');
+  const roP=document.getElementById('roPorts'), roS=document.getElementById('roSw'),
+        roE=document.getElementById('roPoE'), roU=document.getElementById('roU'),
+        st=document.getElementById('rackState');
+  let W=0,H=0,t=0;
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  const INK=a=>'rgba(11,15,23,'+a+')', RED=a=>'rgba(232,54,45,'+a+')';
+  function calc(){
+    const E=+ep.value, G=+gr.value;
+    const ports=Math.ceil(E*(1+G/100));
+    const sw=Math.ceil(ports/48);
+    const poe=(ports*30/1000);
+    const coreU=2, swU=sw, srvU=Math.ceil(E/100)*2, upsU=4, patchU=sw;
+    const totalU=coreU+swU+srvU+upsU+patchU+2;
+    const racks=Math.ceil(totalU/42);
+    return {E,G,ports,sw,poe,coreU,swU,srvU,upsU,patchU,totalU,racks};
+  }
+  function upd(){
+    const c=calc();
+    epv.textContent=c.E; grv.textContent=c.G;
+    roP.textContent=c.ports;
+    roS.textContent=c.sw;
+    roE.textContent=c.poe.toFixed(1)+' kW';
+    roU.textContent=c.totalU+'U of '+ (c.racks*42)+'U';
+    const fill=c.totalU/(c.racks*42);
+    st.textContent=c.racks+' RACK'+(c.racks>1?'S':'')+' — '+(fill>.85?'TIGHT — PLAN THE NEXT RACK':fill>.6?'HEALTHY UTILIZATION':'COMFORTABLE');
+    st.classList.toggle('hot',fill>.85);
+    return c;
+  }
+  ep.addEventListener('input',upd);gr.addEventListener('input',upd);
+  function draw(){
+    t+=.04;
+    const c=upd();
+    ctx.clearRect(0,0,W,H);
+    const rw=Math.min(150,W*.3), rh=H*.78, rx=W*.14, ry=H*.1;
+    // rack frame
+    ctx.strokeStyle=INK(.6);ctx.lineWidth=2;ctx.strokeRect(rx,ry,rw,rh);ctx.lineWidth=1;
+    const uH=rh/42;
+    // rails
+    for(let u=1;u<42;u++){ctx.strokeStyle=INK(.07);ctx.beginPath();ctx.moveTo(rx,ry+u*uH);ctx.lineTo(rx+rw,ry+u*uH);ctx.stroke();}
+    let cursor=1;
+    function unit(count,label,red){
+      for(let k=0;k<count;k++){
+        const y=ry+cursor*uH;
+        ctx.fillStyle=red?RED(.75):INK(.72);
+        ctx.fillRect(rx+3,y+1,rw-6,uH-2);
+        // LEDs blink
+        ctx.fillStyle='rgba(247,245,240,'+(.5+.5*Math.sin(t*3+cursor))+')';
+        ctx.fillRect(rx+rw-14,y+uH*.3,3,3);
+        cursor++;
+      }
+      ctx.fillStyle=INK(.6);ctx.font='600 8px "IBM Plex Mono",monospace';
+      ctx.fillText(label, rx+rw+10, ry+(cursor-count/2)*uH+3);
+      cursor++; // gap
+    }
+    unit(2,'CORE / ROUTER',true);
+    unit(Math.min(c.sw,10),'ACCESS ×'+c.sw,false);
+    unit(Math.min(c.patchU,10),'PATCH',false);
+    unit(Math.min(c.srvU,8),'SERVERS',false);
+    unit(4,'UPS',true);
+    // endpoints cloud right
+    const n=Math.min(60, Math.round(c.E/8)), ox=W*.62, oy=H*.16, ow=W*.3, oh=H*.6;
+    for(let i=0;i<n;i++){
+      const gx=i%6, gy=Math.floor(i/6);
+      const x=ox+gx*(ow/6), y=oy+gy*(oh/10);
+      ctx.strokeStyle=INK(.35);
+      ctx.strokeRect(x,y,10,7);
+      ctx.beginPath();ctx.moveTo(x+5,y+7);ctx.lineTo(x+5,y+10);ctx.stroke();
+    }
+    ctx.fillStyle=INK(.55);ctx.font='600 9px "IBM Plex Mono",monospace';
+    ctx.fillText('ENDPOINTS ≈ '+c.E, ox, oy-10);
+    // trunk line
+    ctx.strokeStyle=RED(.6);ctx.setLineDash([6,5]);
+    ctx.beginPath();ctx.moveTo(rx+rw,ry+3*uH);ctx.lineTo(ox-14,H*.42);ctx.stroke();ctx.setLineDash([]);
+    // packets
+    for(let k=0;k<4;k++){
+      const u=((t*.5)+(k/4))%1;
+      const x=rx+rw+(ox-14-rx-rw)*u, y=ry+3*uH+(H*.42-ry-3*uH)*u;
+      ctx.fillStyle=RED(.85*(1-u)+.15);
+      ctx.beginPath();ctx.arc(x,y,2.4,0,Math.PI*2);ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

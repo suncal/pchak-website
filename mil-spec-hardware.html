@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mil-Spec Hardware & Land Supply Components — P CHAK CONSULTING</title>
+<meta name="description" content="Mil-spec hardware supply from P CHAK CONSULTING — DLA-delivered retaining straps, NSN/QPL literacy, MIL-STD-129/130/2073 packaging and marking, counterfeit prevention, and a working-load-limit lab.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=6">
+<style>
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+/* interactive lab */
+.lab{border:1px solid var(--line);background:var(--white);display:grid;grid-template-columns:1.25fr .75fr}
+.lab-canvas{position:relative;min-height:440px;border-right:1px solid var(--line)}
+.lab-canvas canvas{position:absolute;inset:0;width:100%;height:100%}
+.lab-panel{padding:2rem;display:flex;flex-direction:column;gap:1.4rem;background:var(--ink-2)}
+.lab-panel .mono{color:var(--red)}
+.readout{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:.55rem 0}
+.readout .k{font-size:.8rem;color:var(--mut)}
+.readout .v{font-family:var(--font-m);font-size:.92rem;font-weight:500}
+.readout .v.red{color:var(--red)}
+.lab-slider{display:flex;flex-direction:column;gap:.5rem}
+.lab-slider label{font-family:var(--font-m);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.lab-slider input[type=range]{width:100%;accent-color:var(--red);cursor:pointer}
+.state-chip{font-family:var(--font-m);font-size:.8rem;letter-spacing:.14em;padding:.7rem 1rem;border:1px solid var(--line);text-align:center;transition:all .3s}
+.state-chip.hot{background:var(--red);color:#fff;border-color:var(--red)}
+.lab-note{font-size:.8rem;color:var(--mut);line-height:1.6}
+/* data tables */
+.eng-table{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:.88rem}
+.eng-table th{font-family:var(--font-m);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:var(--ink-2)}
+.eng-table td{padding:.7rem 1.1rem;border-bottom:1px solid var(--line)}
+.eng-table td:first-child{font-family:var(--font-m);font-size:.8rem;color:var(--red)}
+.eng-table tbody tr:hover{background:var(--ink-3)}
+.tbl-wrap{overflow-x:auto}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab-canvas{min-height:340px;border-right:none;border-bottom:1px solid var(--line)}.ctx-grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">04</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">06</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="audit"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="products.html">Products</a><span class="sep">/</span><span>Mil-Spec Hardware</span></div>
+    <h1 data-split>Hardware is easy. <em>Conformance is the product.</em></h1>
+    <p class="lede rv rv-d2">In the military supply system, a strap is never just a strap — it's a specification, a qualified source, an inspection record, a marked package, and a paper trail. We've delivered inside that system, and this page shows you how it's done.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Federal Proof</span><strong>Retaining Straps — DLA Delivered</strong></div>
+      <div><span class="mono">Literacy</span><strong>NSN · QPL · FAT · IUID</strong></div>
+      <div><span class="mono">Standards</span><strong>MIL-STD-129 · 130 · 2073 · Z1.4</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — Engineering Context</span>
+      <span class="mono" style="color:var(--mut)">How this world actually works</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>The part costs dollars. The discipline around it — spec, source, inspect, package, prove — is what the government is <em>actually buying.</em></p>
+      <div class="body rv rv-d2">
+        <p>Commercial buying asks: does it work, and what does it cost? Military buying asks a harder question: <strong>can you prove this exact item conforms to this exact document, revision included, from a source I can audit?</strong> That question spawns the whole apparatus this page explains — specifications and standards, National Stock Numbers, qualified product lists, first-article testing, engineered packaging, and unique item marking.</p>
+<p>This apparatus isn't bureaucracy for its own sake. Every layer answers a real failure: NSNs killed part-number chaos across services and allies; qualification lists ended discovery-by-field-failure; packaging standards ended hardware ruined in transit; traceability and GIDEP made counterfeits findable. Learn why each layer exists and the system stops being paperwork and becomes engineering.</p>
+<p><strong>We hold the receipts:</strong> our DLA Land and Maritime award for retaining straps — competed, won, sourced, inspected, packaged, and delivered complete — is this page in practice. The lab below starts where every securement conversation should: with the number stitched on the label.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark2" id="lab">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — Interactive Lab</span>
+        <h2 class="title" style="margin-top:1.2rem">Load the strap. <em>Learn the label.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:32ch;line-height:1.8">Working Load Limit vs breaking strength — with a design-factor dial and real consequences</span>
+    </div>
+    <div class="lab rv">
+      <div class="lab-canvas"><canvas id="wllCanvas"></canvas></div>
+      <div class="lab-panel">
+        <span class="mono">TIE-DOWN LAB — RATED BREAK STRENGTH 10,000 LB</span>
+        <div class="lab-slider">
+          <label for="loadSlider">Applied Load — <span id="loadVal">2,000</span> lb</label>
+          <input type="range" id="loadSlider" min="0" max="12000" value="2000" step="100">
+        </div>
+        <div class="lab-slider">
+          <label for="sfSlider">Design Factor — <span id="sfVal">3</span>:1</label>
+          <input type="range" id="sfSlider" min="2" max="5" value="3" step="1">
+        </div>
+        <div id="wllState" class="state-chip">SECURE — WITHIN WLL</div>
+        <div>
+          <div class="readout"><span class="k">Working Load Limit (MBS ÷ DF)</span><span class="v" id="roWLL">3,333 lb</span></div>
+          <div class="readout"><span class="k">WLL Utilization</span><span class="v" id="roUtil">60%</span></div>
+          <div class="readout"><span class="k">Margin to Break</span><span class="v" id="roMargin">5.0×</span></div>
+          <div class="readout"><span class="k">Webbing Elongation</span><span class="v" id="roElon">1.2%</span></div>
+        </div>
+        <p class="lab-note">The industry's most misunderstood number: a strap rated <b>10,000 lb</b> is <b>not</b> for 10,000-lb loads. Working Load Limit = breaking strength ÷ design factor. Push past WLL and you're spending your safety margin; reach break strength and the lab shows you exactly what that costs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — Engineering Data</span>
+        <h2 class="title" style="margin-top:1.2rem">The specification stack, <em>decoded.</em></h2>
+      </div>
+    </div>
+    <div class="tbl-wrap rv"><table class="eng-table">
+      <thead><tr><th>Document Type</th><th>Prefix</th><th>What It Governs</th></tr></thead>
+      <tbody>
+        <tr><td>Performance Spec</td><td>MIL-PRF</td><td>What the item must <b>do</b> — performance, environment, interface — leaving design to the manufacturer. The post-1994 preferred form.</td></tr>
+        <tr><td>Detail Spec</td><td>MIL-DTL</td><td>How the item must be <b>made</b> — materials, dimensions, processes. Used where the government must control design exactly.</td></tr>
+        <tr><td>Defense Standard</td><td>MIL-STD</td><td>Uniform engineering practices and interfaces — marking, packaging, environmental test methods — applied across programs.</td></tr>
+        <tr><td>Handbook</td><td>MIL-HDBK</td><td>Guidance and reference data — instructive, not contractually binding unless invoked.</td></tr>
+        <tr><td>Commercial Item Description</td><td>CID (A-A-)</td><td>Government purchase descriptions for commercial products that do the job without a full military spec.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tbl-wrap rv" style="margin-top:2rem"><table class="eng-table">
+      <thead><tr><th>Standard</th><th>Domain</th><th>Why It Matters On Your PO</th></tr></thead>
+      <tbody>
+        <tr><td>MIL-STD-129</td><td>Military Marking for Shipment & Storage</td><td>The labels on the outside: identification, NSN, contract data, and barcodes that let depots receive without guessing. Wrong labels = rejected shipment, right hardware or not.</td></tr>
+        <tr><td>MIL-STD-130</td><td>Item Identification Marking (incl. IUID)</td><td>Marking on the item itself — including the machine-readable Unique Item Identifier (Data Matrix) that gives serialized property a permanent federal identity.</td></tr>
+        <tr><td>MIL-STD-2073-1</td><td>Military Packaging</td><td>Preservation methods and levels that let hardware survive years of storage and rough transport. Packaging is engineered, not an afterthought with bubble wrap.</td></tr>
+        <tr><td>ANSI/ASQ Z1.4</td><td>Sampling Inspection</td><td>The statistical sampling plans (successor to MIL-STD-105) that define how a lot is inspected and accepted — the math behind "AQL."</td></tr>
+        <tr><td>MIL-STD-810</td><td>Environmental Test Methods</td><td>The famous shake-bake-freeze-drop battery. When equipment claims 810 compliance, the method and procedure numbers tell you what was actually tested.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="spec-grid rv" style="margin-top:2.5rem">
+      <div class="spec"><span class="mono">NSN ANATOMY</span><h4>13 Digits, Zero Ambiguity</h4><p>4-digit Federal Supply Class + 2-digit country code + 7-digit serial = one item identity across NATO. The last 9 digits (the NIIN) never change even if the class does.</p></div>
+      <div class="spec"><span class="mono">QUALIFICATION</span><h4>QPL / QML</h4><p>Some specs require pre-qualification: only products (QPL) or manufacturers (QML) already tested and listed may supply. Checking qualification requirements before bidding is basic literacy — and often skipped.</p></div>
+      <div class="spec"><span class="mono">ACCEPTANCE</span><h4>FAT · COC · Test Reports</h4><p>First Article Testing proves the process; Certificates of Conformance attest each lot; test reports carry the data. Which combination your contract requires is defined up front — and we price it in, not discover it late.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERED PROOF -->
+<section class="sec-tight sec-dark2">
+  <div class="wrap">
+    <div class="pp-grid rv" style="grid-template-columns:1.2fr .8fr;align-items:center">
+      <div class="pp-card" data-tilt>
+        <span class="badge">FEDERAL AWARD — DELIVERED</span>
+        <span class="mono">Defense Logistics Agency</span>
+        <h4>This exact discipline, executed: 137 retaining straps, DLA Land and Maritime</h4>
+        <p>Competitively awarded through DIBBS, sourced to specification, inspected, packaged and marked to standard, delivered complete with documentation. Not a case study we read — a purchase order we performed.</p>
+        <div class="pp-rows">
+          <div><span>Item</span><span>STRAP, RETAINING</span></div>
+          <div><span>Quantity</span><span>137 UNITS — COMPLETE</span></div>
+          <div><span>Channel</span><span>DLA DIBBS · CAGE 9NWB7</span></div>
+        </div>
+      </div>
+      <div>
+        <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1rem"><span class="tick"></span>Why This Page Exists</span>
+        <p style="color:var(--mut);max-width:44ch">Any supplier can quote a strap. The federal supply system is really buying the discipline around it — the spec reading, the qualified sourcing, the packaging, the paper. We wrote this page to show you we speak that language natively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>Field Guide</span>
+        <h2 class="title" style="margin-top:1.2rem">Specify like <em>an insider.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>How do I read an NSN, really?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Take 5340-01-234-5678. The first four digits are the Federal Supply Class (5340 = miscellaneous hardware); the next two are the NATO country bureau that assigned it (00/01 = USA); the final seven are a non-significant serial. Digits 5–13 together form the NIIN — the item's permanent identity. One NSN, one item concept, every stock point in NATO: it's the reason a depot in Georgia and a ship in the Pacific mean the same thing by the same number.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>What changed with 'MilSpec reform' — and what didn't?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>The 1994 reform (the Perry memo) pushed the system from telling industry how to build (detail specs) toward what to achieve (performance specs, MIL-PRF), and retired thousands of documents in favor of commercial standards. What didn't change: where the government still needs exact configuration control — fasteners, interfaces, legacy platforms — detail specs (MIL-DTL) remain, and the discipline of building to the invoked revision, exactly, is untouched.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>Why does the government care so much about packaging?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Because military hardware may ride a truck, a ship, and a forklift, then sit in storage for a decade — and must still work. MIL-STD-2073 defines engineered preservation (cleaning, barriers, cushioning, unit containers) and MIL-STD-129 makes every box machine-identifiable in the logistics system. A technically perfect part in wrong packaging is a non-conforming delivery: the box is part of the product.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>What is IUID and when does it apply?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Item Unique Identification: serialized items above thresholds (or designated by the contract) carry a permanent machine-readable Data Matrix mark per MIL-STD-130, encoding a globally unique identifier that follows the item for life in the government's property registry. If your contract cites IUID, marking method, mark quality verification, and registry submission all become deliverables — we scope them from day one.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">05</span>How does the system fight counterfeit parts?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Layered custody: buy from OEMs, authorized distributors, or qualified sources; keep unbroken lot traceability; inspect against the spec on receipt; and report suspects through GIDEP so one catch protects the whole industrial base. DFARS counterfeit-prevention clauses flow these duties down the supply chain. Our operating rule is blunter: no documented provenance, no purchase — at any price.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">06</span>What's the practical difference between WLL and breaking strength?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Breaking strength (MBS) is where new hardware fails in a lab, once. Working Load Limit is MBS divided by a design factor — commonly 3:1 for cargo securement — and it's the only number you operate to. The factor absorbs everything the lab didn't test: wear, shock loading, edge abrasion, weather, and imperfect rigging. Hardware without a marked WLL, or used past it, isn't strong — it's unrated, which in this world means unusable.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)">
+    <div class="rv">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Datasheet Checklist — what we ask before quoting</span>
+      <div class="chips"><span>NSN / Part Number & Spec Revision</span><span>QPL/QML Requirement</span><span>First Article / COC / Test Reports</span><span>Quantity & Delivery Schedule</span><span>Packaging Level & MIL-STD-2073 Method</span><span>MIL-STD-129 Marking Data</span><span>IUID Requirement</span><span>Lot Traceability Depth</span><span>Inspection & Acceptance Terms</span></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Related</span>
+      <div class="c-rows" style="border-top:1px solid var(--line)">
+        <a class="c-row" href="defense.html" data-cursor="VIEW"><span class="mono" style="width:auto">DOMAIN</span><span style="font-family:var(--font-d);font-weight:500">Defense Technologies</span></a>
+        <a class="c-row" href="pressure-switches.html" data-cursor="VIEW"><span class="mono" style="width:auto">PRODUCT</span><span style="font-family:var(--font-d);font-weight:500">Pressure Switches</span></a>
+        <a class="c-row" href="contracting.html" data-cursor="VIEW"><span class="mono" style="width:auto">ENGAGE</span><span style="font-family:var(--font-d);font-weight:500">Doing Business With Us</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready to specify?</span>
+    <h2 data-split>Send the NSN. <em>We'll speak the rest of the language.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Request a Quote</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="tel:+18009882863" class="btn btn-ghost"><span>(800) 988-2863</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+<script>
+
+(function(){
+  const cv=document.getElementById('wllCanvas'); if(!cv)return;
+  const ctx=cv.getContext('2d'), dpr=Math.min(devicePixelRatio||1,2);
+  const ls=document.getElementById('loadSlider'), sf=document.getElementById('sfSlider');
+  const lv=document.getElementById('loadVal'), sv=document.getElementById('sfVal');
+  const roW=document.getElementById('roWLL'), roU=document.getElementById('roUtil'),
+        roM=document.getElementById('roMargin'), roE=document.getElementById('roElon'),
+        st=document.getElementById('wllState');
+  const MBS=10000;
+  let broken=false, snapT=0, W=0,H=0,t=0;
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  const INK=a=>'rgba(11,15,23,'+a+')', RED=a=>'rgba(232,54,45,'+a+')';
+  const fmt=n=>n.toLocaleString('en-US');
+  function upd(){
+    const L=+ls.value, DF=+sf.value, WLL=Math.round(MBS/DF);
+    lv.textContent=fmt(L); sv.textContent=DF;
+    roW.textContent=fmt(WLL)+' lb';
+    roU.textContent=Math.round(L/WLL*100)+'%';
+    roM.textContent=L>0?(MBS/L).toFixed(1)+'×':'∞';
+    roE.textContent=(L/MBS*6).toFixed(1)+'%';
+    if(L>=MBS){broken=true;}
+    if(L<=WLL*0.5) broken=false;
+    let label,hot=false;
+    if(broken){label='FAILURE — STRAP PARTED';hot=true;}
+    else if(L>WLL*1.5){label='DANGER — DEEP INTO MARGIN';hot=true;}
+    else if(L>WLL){label='OVER WLL — MARGIN SPENDING';hot=true;}
+    else if(L>WLL*.85){label='AT WORKING LOAD LIMIT';}
+    else{label='SECURE — WITHIN WLL';}
+    st.textContent=label;st.classList.toggle('hot',hot);
+  }
+  ls.addEventListener('input',upd);sf.addEventListener('input',upd);upd();
+  function draw(){
+    t+=.05;upd();
+    ctx.clearRect(0,0,W,H);
+    const L=+ls.value, DF=+sf.value, WLL=MBS/DF;
+    const y=H*.42, x0=W*.12, x1=W*.88;
+    // anchor points
+    ctx.fillStyle=INK(.8);
+    ctx.fillRect(x0-14,y-26,14,52);ctx.fillRect(x1,y-26,14,52);
+    ctx.font='600 9px "IBM Plex Mono",monospace';ctx.fillStyle=INK(.5);
+    ctx.fillText('ANCHOR',x0-16,y-34);ctx.fillText('ANCHOR',x1-10,y-34);
+    // load block hanging center
+    const sag=broken?0:Math.max(4, 40-(L/MBS)*36);
+    const cx=W*.5;
+    if(!broken){
+      // strap (two segments through load point)
+      const stress=L/MBS;
+      ctx.lineWidth=5-(stress*2);
+      ctx.strokeStyle= stress>WLL/MBS ? RED(.5+stress*.5) : INK(.75);
+      ctx.beginPath();ctx.moveTo(x0,y);ctx.quadraticCurveTo(cx,y+sag*2,cx,y+sag+40);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x1,y);ctx.quadraticCurveTo(cx,y+sag*2,cx,y+sag+40);ctx.stroke();
+      // vibration when over WLL
+      const jx= L>WLL? Math.sin(t*14)*(L-WLL)/MBS*26 : 0;
+      // load block
+      ctx.fillStyle=INK(.85);
+      ctx.fillRect(cx-44+jx,y+sag+40,88,54);
+      ctx.fillStyle='rgba(247,245,240,.95)';
+      ctx.font='600 10px "IBM Plex Mono",monospace';
+      ctx.fillText(fmt(L)+' LB',cx-28+jx,y+sag+70);
+    }else{
+      snapT+=1;
+      // parted strap whipping
+      ctx.lineWidth=4;ctx.strokeStyle=RED(.85);
+      ctx.beginPath();ctx.moveTo(x0,y);
+      ctx.quadraticCurveTo(x0+60,y-30-Math.sin(t*6)*10,x0+110,y-8);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x1,y);
+      ctx.quadraticCurveTo(x1-60,y-34+Math.sin(t*5)*10,x1-110,y-4);ctx.stroke();
+      // falling load
+      const fy=Math.min(H-70, y+80+snapT*3);
+      ctx.fillStyle=INK(.85);ctx.fillRect(W*.5-44,fy,88,54);
+      ctx.fillStyle=RED(.9);
+      ctx.font='700 11px "IBM Plex Mono",monospace';
+      ctx.fillText('LOAD LOST',W*.5-32,fy-10);
+    }
+    ctx.lineWidth=1;
+    // load bar gauge at bottom
+    const gx=W*.12,gw=W*.76,gy=H*.85;
+    ctx.strokeStyle=INK(.3);ctx.strokeRect(gx,gy,gw,14);
+    const wllX=gx+gw*(WLL/12000), mbsX=gx+gw*(MBS/12000);
+    ctx.fillStyle=INK(.12);ctx.fillRect(gx,gy,gw*(Math.min(L,12000)/12000),14);
+    ctx.fillStyle=L>WLL?RED(.55):RED(.35);
+    ctx.fillRect(gx,gy,Math.min(gw*(L/12000), gw),14);
+    ctx.strokeStyle=INK(.8);ctx.beginPath();ctx.moveTo(wllX,gy-6);ctx.lineTo(wllX,gy+20);ctx.stroke();
+    ctx.strokeStyle=RED(.9);ctx.beginPath();ctx.moveTo(mbsX,gy-6);ctx.lineTo(mbsX,gy+20);ctx.stroke();
+    ctx.fillStyle=INK(.6);ctx.font='600 8px "IBM Plex Mono",monospace';
+    ctx.fillText('WLL',wllX-10,gy-10);
+    ctx.fillStyle=RED(.85);ctx.fillText('BREAK',mbsX-16,gy-10);
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
