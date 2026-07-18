@@ -60,13 +60,29 @@ prog.className = 'progress'; prog.innerHTML = '<span></span>';
 document.body.appendChild(prog);
 const progBar = prog.firstChild;
 
+/* ---------- back-to-top mission dial ---------- */
+const dial = document.createElement('button');
+dial.className = 'top-dial';
+dial.setAttribute('aria-label','Back to top');
+dial.setAttribute('data-cursor','TOP');
+dial.innerHTML = '<svg viewBox="0 0 54 54"><circle class="track" cx="27" cy="27" r="24"/><circle class="ring" cx="27" cy="27" r="24"/></svg><svg class="arrow" viewBox="0 0 14 14"><path d="M7 12V2M2.5 6.5L7 2l4.5 4.5"/></svg>';
+document.body.appendChild(dial);
+const dialRing = dial.querySelector('.ring');
+const DIAL_C = 2*Math.PI*24;
+dialRing.style.strokeDasharray = DIAL_C;
+dialRing.style.strokeDashoffset = DIAL_C;
+dial.addEventListener('click', ()=>scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'}));
+
 /* ---------- nav ---------- */
 const nav = document.querySelector('.nav');
 let lastY = 0;
 function onScroll(){
   const y = scrollY;
   const h = document.documentElement.scrollHeight - innerHeight;
-  progBar.style.transform = `scaleX(${h > 0 ? y/h : 0})`;
+  const p = h > 0 ? y/h : 0;
+  progBar.style.transform = `scaleX(${p})`;
+  dialRing.style.strokeDashoffset = DIAL_C * (1-p);
+  dial.classList.toggle('show', y > 600);
   if(nav){
     nav.classList.toggle('scrolled', y > 40);
     const menuOpen = document.querySelector('.mobile-menu.open');
