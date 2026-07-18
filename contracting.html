@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
 <style>
 .naics-cat{margin-bottom:.4rem}
 .naics-cat td{background:var(--ink-2);font-family:var(--font-m);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
@@ -54,6 +54,7 @@
 
 <header class="page-hero">
   <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="audit"></canvas>
   <div class="wrap" style="position:relative">
     <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><span>Contracting</span></div>
     <h1 data-split>Contract-ready. <em>Mission-ready.</em></h1>
@@ -348,5 +349,6 @@
 </footer>
 
 <script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
 </body>
 </html>

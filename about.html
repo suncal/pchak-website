@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
 <style>
 .leader{display:grid;grid-template-columns:.9fr 1.4fr;gap:clamp(2.5rem,5vw,5rem);align-items:center;border:1px solid var(--line);background:var(--ink-2);padding:clamp(2rem,4vw,3.6rem)}
 .leader-visual{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--ink);overflow:hidden}
@@ -62,6 +62,7 @@
 
 <header class="page-hero">
   <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="ringsGrow"></canvas>
   <div class="wrap" style="position:relative">
     <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><span>About Us</span></div>
     <h1 data-split>Born to redefine <em>the standard.</em></h1>
@@ -249,5 +250,6 @@
 </footer>
 
 <script src="assets/site.js?v=5"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
 </body>
 </html>

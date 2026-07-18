@@ -538,3 +538,7 @@ footer{
   .foot-top{grid-template-columns:1fr}
   .naics-table td .tag{display:none}
 }
+
+/* ============ HERO INSTRUMENTS (per-page sub-hero canvas) ============ */
+.ph-viz{position:absolute;right:0;top:0;height:100%;width:min(48vw,640px);z-index:0;pointer-events:none;opacity:.92}
+@media(max-width:900px){.ph-viz{display:none}}
