@@ -361,6 +361,16 @@
     ctx.fillRect(cx-bw*.14+2, base+24-ph, bw*.28-4, ph);
     requestAnimationFrame(draw);
   }
+  s.addEventListener('input',function(){
+    const p=+s.value;
+    if(!open && p>=SET) open=true;
+    if(open && p<=RESEAT) open=false;
+    roP.textContent=p.toFixed(1)+' psig';
+    roM.textContent=open?'OPEN — FULL FLOW':'CLOSED';
+    roF.textContent=open?'VENTED':(p>70?'VERY HIGH':p>30?'HIGH':'MODERATE');
+    st.textContent=open?'PILOT TRIPPED — RELIEVING':'DOME LOADED — SEAT TIGHT';
+    st.classList.toggle('hot',open);
+  });
   requestAnimationFrame(draw);
 })();
 </script>

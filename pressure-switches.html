@@ -344,6 +344,18 @@
     ctx.fillText('PRESSURE / TIME', gx, gy-8);
     requestAnimationFrame(draw);
   }
+  function upd(){
+    const p=+s.value, D=+db.value, RESET=TRIP-D;
+    if(!tripped && p>=TRIP) tripped=true;
+    if(tripped && p<=RESET) tripped=false;
+    roP.textContent=p.toFixed(1)+' psig';
+    roR.textContent=RESET.toFixed(1)+' psig';
+    roC.textContent=tripped?'ENERGIZED — ALARM':'DE-ENERGIZED';
+    st.textContent=tripped?'CONTACTS: TRIPPED':'CONTACTS: NORMAL';
+    st.classList.toggle('hot',tripped);
+    dbv.textContent=D;
+  }
+  s.addEventListener('input',upd); db.addEventListener('input',upd);
   requestAnimationFrame(draw);
 })();
 </script>
