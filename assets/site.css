@@ -542,3 +542,15 @@ footer{
 /* ============ HERO INSTRUMENTS (per-page sub-hero canvas) ============ */
 .ph-viz{position:absolute;right:0;top:0;height:100%;width:min(48vw,640px);z-index:0;pointer-events:none;opacity:.92}
 @media(max-width:900px){.ph-viz{display:none}}
+
+/* ============ MOBILE OPTIMIZATION PASS ============ */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)}
+@media(max-width:900px){
+  .grid-2{grid-template-columns:1fr;gap:2.2rem}
+  .page-hero{padding:8.5rem 0 3rem}
+  .page-hero .ph-meta{gap:1.2rem 1.8rem;margin-top:1.8rem}
+  .section-head{margin-bottom:2.4rem}
+  .sec{padding:3.8rem 0}
+  .lab-panel{padding:1.4rem}
+  .big-cta h2{font-size:clamp(2rem,8vw,3rem)}
+}
