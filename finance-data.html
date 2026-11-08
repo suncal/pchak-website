@@ -41,6 +41,7 @@
 .demo-band p{font-size:.95rem;color:var(--mut);max-width:52ch}
 .span2{grid-column:span 2}
 @media(max-width:900px){.span2{grid-column:auto}.spec-grid{grid-template-columns:1fr}.ctx-grid{grid-template-columns:1fr}.eng-grid{grid-template-columns:1fr}}
+.flow-panel{--ink:#06090F;--ink-2:#0B111C;--ink-3:#101827;--paper:#F5F3EE;--line:rgba(245,243,238,.1);--mut:rgba(245,243,238,.55);background:var(--ink-2);border:1px solid rgba(11,15,23,.12);padding:clamp(.6rem,1.5vw,1.4rem);overflow:hidden}
 </style>
 </head>
 <body>
@@ -129,6 +130,21 @@
       <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="28" rx="1"/><path d="M7 17h30M15 9V5M29 9V5"/><circle cx="27" cy="27" r="6"/><path d="M27 24v3l2 2"/></svg></span><span class="mono">S.05</span><h4>Month-End Support</h4><p>Hands-on help keeping consolidations, refreshes, and reports running through the close — until your team runs the process confidently on its own.</p></div>
       <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><path d="M22 6l16 8-16 8L6 14l16-8z"/><path d="M6 22l16 8 16-8M6 30l16 8 16-8"/></svg></span><span class="mono">S.06</span><h4>Other FP&amp;A &amp; BI Tools</h4><p>The same implementation discipline applied to Vena, Cube, Planful, Power BI, and Tableau — we fit the tool to your stack, not the other way around.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- LIVE PIPELINE -->
+<section class="sec" id="pipeline">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>Live Pipeline</span>
+        <h2 class="title" style="margin-top:1.2rem">Every system, every entity,<br><em>moving at once.</em></h2>
+      </div>
+      <span class="mono" style="color:var(--mut);max-width:34ch;line-height:1.8">Illustrative animation of how we connect, map, consolidate and reconcile your data</span>
+    </div>
+    <div class="flow-panel rv" data-flowviz></div>
+    <p style="font-size:.78rem;color:var(--mut);margin-top:1rem">Illustration only. Figures are simulated and do not represent client data.</p>
   </div>
 </section>
 
@@ -309,5 +325,6 @@
 
 <script src="assets/site.js?v=8"></script>
 <script src="assets/heroviz.js?v=1" defer></script>
+<script src="assets/flowviz.js?v=2" defer></script>
 </body>
 </html>
