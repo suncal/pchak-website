@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datarails Implementation Services &amp; Consulting | P CHAK Consulting</title>
+<meta name="description" content="Independent Datarails implementation: ERP connections, multi-entity consolidation, chart of accounts mapping, GL reconciliation and FP&amp;A dashboards in Excel.">
+<link rel="canonical" href="https://www.pchakconsulting.com/datarails.html">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=8">
+<style>
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+.spec .sic{display:block;width:38px;height:38px;margin-bottom:1.1rem}
+.spec .sic svg{width:100%;height:100%;fill:none;stroke:var(--red);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.eng{background:var(--ink);padding:2.4rem 2rem;transition:background .4s;display:flex;flex-direction:column}
+.eng:hover{background:var(--ink-3)}
+.eng .mono{color:var(--red);display:block;margin-bottom:1rem}
+.eng h4{font-family:var(--font-d);font-size:1.3rem;font-weight:600;margin-bottom:.7rem}
+.eng p{font-size:.9rem;color:var(--mut);line-height:1.7}
+.eng ul{list-style:none;margin-top:1.2rem;display:flex;flex-direction:column;gap:.55rem}
+.eng li{font-size:.86rem;color:var(--mut);padding-left:1.1rem;position:relative}
+.eng li::before{content:"";position:absolute;left:0;top:.52em;width:5px;height:5px;background:var(--red)}
+.timeline-note{margin-top:1.8rem;border:1px solid var(--line);border-left:3px solid var(--red);padding:1rem 1.4rem;font-size:.9rem;color:var(--mut)}
+.timeline-note b{color:var(--paper);font-weight:600}
+.demo-band{border:1px solid var(--line);border-left:3px solid var(--red);background:var(--white);padding:2.6rem clamp(1.6rem,4vw,3.2rem);display:flex;align-items:center;justify-content:space-between;gap:2.5rem;flex-wrap:wrap}
+.demo-band h3{font-family:var(--font-d);font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;letter-spacing:-.015em;margin-bottom:.5rem}
+.demo-band h3 em{font-style:normal;color:var(--red)}
+.demo-band p{font-size:.95rem;color:var(--mut);max-width:52ch}
+@media(max-width:900px){.spec-grid{grid-template-columns:1fr}.ctx-grid{grid-template-columns:1fr}.eng-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="finance-data.html">Finance Data</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="finance-data.html"><span>Finance Data</span><span class="mono">04</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">05</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">06</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">07</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="network"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="finance-data.html">Finance Data</a><span class="sep">/</span><span>Datarails</span></div>
+    <h1 data-split>Datarails, implemented <em>properly.</em></h1>
+    <p class="lede rv rv-d2">We set up Datarails end to end: connecting your ERP and other systems, consolidating entities, mapping your chart of accounts and building Excel-native dashboards that tie to the ledger.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Platform</span><strong>Datarails · Excel · FinanceOS</strong></div>
+      <div><span class="mono">Systems</span><strong>ERP · Accounting · CRM · HRIS · Banking</strong></div>
+      <div><span class="mono">Model</span><strong>Discover · Connect · Validate · Deliver</strong></div>
+    </div>
+    <div class="actions rv rv-d3" style="margin-top:2.4rem">
+      <a href="contact.html" class="btn btn-solid"><span>Book a Discovery Call</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="fpa-demo.html" class="btn btn-ghost"><span>View the Live Demo</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    </div>
+    <span class="ph-num">10</span>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — Context</span>
+      <span class="mono" style="color:var(--mut)">Why Datarails projects succeed or stall</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>Datarails keeps Excel at the front. The hard part is <em>everything behind it.</em></p>
+      <div class="body rv rv-d2">
+        <p>Datarails lets your team keep the Excel models they trust while the numbers refresh from your source systems. That only works when the data underneath is <strong>connected, mapped and reconciled</strong> correctly.</p>
+        <p>We handle that groundwork: connectors, chart of accounts mapping, entity and currency rules, intercompany eliminations and a tie-out to the general ledger before any dashboard goes live.</p>
+        <p>Whether you are starting a new Datarails rollout or fixing one that stalled, we work for your finance team as an <strong>independent consultancy</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark2">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — What We Do</span>
+        <h2 class="title" style="margin-top:1.2rem">Datarails services,<br>end to <em>end.</em></h2>
+      </div>
+    </div>
+    <div class="spec-grid rv">
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="1"/><path d="M6 16h32M17 16v20M28 16v20M6 26h32"/></svg></span><span class="mono">S.01</span><h4>Datarails Setup</h4><p>Workspace configuration, data structure, dimensions and connecting your existing Excel models so they refresh automatically.</p></div>
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="4"/><circle cx="8" cy="10" r="3"/><circle cx="36" cy="10" r="3"/><circle cx="8" cy="34" r="3"/><circle cx="36" cy="34" r="3"/><path d="M11 12l8 7M33 12l-8 7M11 32l8-7M33 32l-8-7"/></svg></span><span class="mono">S.02</span><h4>ERP &amp; Source Connections</h4><p>NetSuite, Sage Intacct, QuickBooks, Xero, SAP, Microsoft Dynamics and more, plus CRM, HR, banking and structured file feeds.</p></div>
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><path d="M8 12h12M8 22h12M8 32h12"/><path d="M24 12c6 0 6 10 12 10M24 32c6 0 6-10 12-10"/><circle cx="38" cy="22" r="2.5"/></svg></span><span class="mono">S.03</span><h4>Consolidation</h4><p>Multi-entity and multi-currency consolidation with intercompany eliminations and group reporting structures.</p></div>
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><path d="M8 36h28"/><rect x="10" y="22" width="5" height="14"/><rect x="19" y="14" width="5" height="22"/><rect x="28" y="8" width="5" height="28"/></svg></span><span class="mono">S.04</span><h4>Dashboards &amp; Board Packs</h4><p>P&amp;L, budget vs actual, cash, headcount and KPI dashboards, through to leadership and board reporting packs.</p></div>
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="28" rx="1"/><path d="M7 17h30M15 9V5M29 9V5"/><circle cx="27" cy="27" r="6"/><path d="M27 24v3l2 2"/></svg></span><span class="mono">S.05</span><h4>Rollout Rescue</h4><p>A review of a stalled or unreliable Datarails setup: what is broken, what to fix first and a plan to get it trusted again.</p></div>
+      <div class="spec"><span class="sic"><svg viewBox="0 0 44 44"><path d="M22 6l16 8-16 8L6 14l16-8z"/><path d="M6 22l16 8 16-8M6 30l16 8 16-8"/></svg></span><span class="mono">S.06</span><h4>Training &amp; Support</h4><p>Hands-on training, a monthly runbook and optional month-end support so your team owns the platform.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — How It Works</span>
+        <h2 class="title" style="margin-top:1.2rem">Four phases. <em>No surprises.</em></h2>
+      </div>
+    </div>
+    <div class="proc-grid">
+      <div class="proc rv"><span class="mono">Phase 01</span><h3>Discovery</h3><p>1–2 weeks: we review your systems and reporting needs, then deliver a plan, specifications and a fixed quote.</p></div>
+      <div class="proc rv rv-d1"><span class="mono">Phase 02</span><h3>Connect &amp; Map</h3><p>We connect each source system and map accounts, entities, currencies and dimensions into one consistent structure.</p></div>
+      <div class="proc rv rv-d2"><span class="mono">Phase 03</span><h3>Validate</h3><p>We reconcile against your ledger for recent closed months, so numbers earn trust before reports are built on them.</p></div>
+      <div class="proc rv rv-d3"><span class="mono">Phase 04</span><h3>Deliver &amp; Handover</h3><p>We build the reports, train your team and leave a runbook, with your sign-off at every phase.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap grid-2">
+    <div class="rv">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Who It's For</span>
+      <p style="font-family:var(--font-d);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.45;font-weight:500;max-width:34ch">Finance teams, CFOs, FP&amp;A leaders and global capability centers (GCCs) using or choosing Datarails.</p>
+    </div>
+    <div class="rv rv-d1">
+      <span class="kicker mono" style="color:var(--red);display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem"><span class="tick"></span>Other Platforms</span>
+      <p style="color:var(--mut);line-height:1.9"><a href="netsuite.html">NetSuite</a> · <a href="business-central.html">Business Central</a> · <a href="cube.html">Cube</a> · <a href="vena.html">Vena</a> · <a href="planful.html">Planful</a> · <a href="adaptive-planning.html">Adaptive Planning</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-paper" id="faq">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>04 — Field Guide</span>
+        <h2 class="title" style="margin-top:1.2rem">Datarails questions,<br><em>straight answers.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>Do you work for Datarails?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>No. We are an independent consultancy. We work for your finance team, alongside Datarails' own onboarding where that applies.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>We already bought Datarails. Can you still help?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Yes. Many teams buy the platform and then need hands-on help with connectors, mapping and dashboards. We can start from wherever your rollout is today.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>How long does a Datarails implementation take?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Most projects take 6 to 10 weeks, depending on the number of entities, systems and reports. Discovery gives you a fixed timeline and price.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>Can you fix a Datarails setup that isn't working?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Yes. We start with a short review, find where numbers stop tying out, and give you a prioritised fix plan.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">Ready when you are</span>
+    <h2 data-split>Tell us about your Datarails setup and reporting goals. We'll come back with a <em>clear plan.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="contact.html" class="btn btn-solid"><span>Book a Discovery Call</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="finance-data.html" class="btn btn-ghost"><span>All Finance Data Services</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+      <a href="finance-data.html">Finance Data & Dashboards</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:1.6rem">
+    <p style="font-size:.72rem;color:var(--mut);line-height:1.7;max-width:86ch">Datarails, NetSuite, Microsoft Dynamics 365 Business Central, Cube, Vena, Planful, Workday Adaptive Planning, QuickBooks, Power BI and other product names are trademarks of their respective owners. P CHAK Consulting is an independent consultancy and is not affiliated with these vendors.</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=8"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+</body>
+</html>
