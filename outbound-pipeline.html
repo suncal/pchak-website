@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outbound Pipeline Pilot — P CHAK CONSULTING</title>
+<meta name="description" content="B2B lead generation and outbound appointment setting from P CHAK CONSULTING: a 30-day, $2,000 pilot that targets 2–4 qualified meetings with the decision-makers you sell to. Start with 2 free sample leads.">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=8">
+<style>
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start}
+.ctx-grid .statement{font-family:var(--font-d);font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.ctx-grid .statement em{font-style:normal;color:var(--red)}
+.ctx-grid .body{color:var(--mut);display:flex;flex-direction:column;gap:1.4rem;font-size:1.02rem}
+.ctx-grid .body strong{color:var(--paper)}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
+.spec:hover{background:var(--ink-3)}
+.spec .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.spec h4{font-family:var(--font-d);font-size:1.08rem;font-weight:600;margin-bottom:.5rem}
+.spec p{font-size:.86rem;color:var(--mut)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--ink);padding:2rem 1.6rem}
+.step .mono{color:var(--red);display:block;margin-bottom:.8rem}
+.step h4{font-family:var(--font-d);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.step p{font-size:.86rem;color:var(--mut)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.plan{background:var(--ink);padding:2.4rem 2rem;display:flex;flex-direction:column;gap:1rem}
+.plan .mono{color:var(--red)}
+.plan .price{font-family:var(--font-d);font-size:clamp(2rem,4vw,2.8rem);font-weight:600;letter-spacing:-.02em}
+.plan .price small{font-size:.95rem;color:var(--mut);font-weight:500}
+.plan ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem}
+.plan li{font-size:.9rem;color:var(--mut);padding-left:1.2rem;position:relative}
+.plan li:before{content:"";position:absolute;left:0;top:.55em;width:.5rem;height:2px;background:var(--red)}
+.fine{font-size:.82rem;color:var(--mut);margin-top:1.4rem;line-height:1.7}
+.qual{counter-reset:q;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.qual div{background:var(--white);padding:1.2rem 1.4rem 1.2rem 3.6rem;position:relative;font-size:.95rem}
+.qual div:before{counter-increment:q;content:"0" counter(q);position:absolute;left:1.3rem;top:1.2rem;font-family:var(--font-m);font-size:.8rem;color:var(--red)}
+@media(max-width:900px){.ctx-grid,.plans{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="P Chak Consulting home">
+      <img src="assets/mark.png" alt="" width="38" height="38">
+      <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="products.html">Products</a>
+      <a href="finance-data.html">Finance Data</a>
+      <a href="quality.html">Quality</a>
+      <a href="contracting.html">Contracting</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span>Home</span><span class="mono">00</span></a>
+  <a href="about.html"><span>About</span><span class="mono">01</span></a>
+  <a href="capabilities.html"><span>Capabilities</span><span class="mono">02</span></a>
+  <a href="products.html"><span>Products</span><span class="mono">03</span></a>
+  <a href="finance-data.html"><span>Finance Data</span><span class="mono">04</span></a>
+  <a href="quality.html"><span>Quality</span><span class="mono">05</span></a>
+  <a href="contracting.html"><span>Contracting</span><span class="mono">06</span></a>
+  <a href="contact.html"><span>Contact</span><span class="mono">07</span></a>
+</div>
+
+<header class="page-hero">
+  <div class="ph-bg"></div><div class="ph-grid"></div>
+  <canvas class="ph-viz" data-viz="flow"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="crumbs mono rv"><a href="index.html">Home</a><span class="sep">/</span><a href="capabilities.html">Capabilities</a><span class="sep">/</span><span>Outbound Pipeline Pilot</span></div>
+    <h1 data-split>Qualified meetings with the people <em>you actually sell to.</em></h1>
+    <p class="lede rv rv-d2">B2B lead generation and outbound appointment setting, done by researchers, not list scrapers. We find the right accounts, reach the decision-makers and book meetings into your calendar. See two free sample leads before you spend a dollar.</p>
+    <div class="ph-meta rv rv-d3">
+      <div><span class="mono">Pilot</span><strong>30 Days · $2,000 Fixed</strong></div>
+      <div><span class="mono">Target</span><strong>2–4 Qualified Meetings</strong></div>
+      <div><span class="mono">Start</span><strong>2 Free Sample Leads</strong></div>
+    </div>
+    <div class="actions rv rv-d3" style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="mailto:info@pchakconsulting.com?subject=Free%20sample%20leads%20request&body=Company%20and%20website%3A%0AWhat%20you%20sell%3A%0AWho%20you%20sell%20to%20(industry%2C%20company%20size%2C%20region)%3A%0AJob%20titles%20you%20want%20meetings%20with%3A%0AAny%20companies%20or%20sectors%20to%20exclude%3A" class="btn btn-solid"><span>Get 2 Free Sample Leads</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="#pricing" class="btn btn-ghost"><span>See Pricing</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker mono"><span class="tick"></span>01 — The Problem</span>
+      <span class="mono" style="color:var(--mut)">Why most outbound fails</span>
+    </div>
+    <div class="ctx-grid">
+      <p class="statement" data-split>A list of names is not a pipeline. <em>A reason to talk, sent to the right person, is.</em></p>
+      <div class="body rv rv-d2">
+        <p>Most lead generation sells volume: thousands of contacts, generic templates, and a dashboard full of "opens." Decision-makers ignore it, and your domain pays the price.</p>
+        <p>We work the other way. Every account is <strong>researched by hand</strong>: why it fits your profile, a dated trigger that makes now a good time, and a named decision-maker. Messages are short, specific and <strong>approved by you</strong> before anything is sent.</p>
+        <p>You only count a meeting when it was <strong>held, with the right person</strong>, and you confirmed it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark2">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>02 — How It Works</span>
+        <h2 class="title" style="margin-top:1.2rem">From sample leads to <em>booked meetings.</em></h2>
+      </div>
+    </div>
+    <div class="steps rv">
+      <div class="step"><span class="mono">STEP 01 · FREE</span><h4>2 Sample Leads</h4><p>Tell us who you sell to. We research two real accounts with a named decision-maker and a reason to reach out now, so you can judge the quality first.</p></div>
+      <div class="step"><span class="mono">STEP 02 · ~2 WEEKS</span><h4>Setup</h4><p>We set up a separate sending domain and inboxes that you own, warm them up, and write the message sequence for your approval.</p></div>
+      <div class="step"><span class="mono">STEP 03 · 30 DAYS</span><h4>Pilot</h4><p>We research 50–100 accounts, run the outreach, handle replies and book interested prospects into your calendar.</p></div>
+      <div class="step"><span class="mono">STEP 04 · WEEKLY</span><h4>Report</h4><p>A short written update every week: accounts worked, replies, meetings booked, held and confirmed, and what we're adjusting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>03 — What's Included</span>
+        <h2 class="title" style="margin-top:1.2rem">Everything in <em>the pilot.</em></h2>
+      </div>
+    </div>
+    <div class="spec-grid rv">
+      <div class="spec"><span class="mono">RESEARCH</span><h4>50–100 Hand-Researched Accounts</h4><p>Each with why it fits, a dated trigger and a named decision-maker. No purchased bulk lists.</p></div>
+      <div class="spec"><span class="mono">MESSAGING</span><h4>Email Sequence You Approve</h4><p>Short, specific messages built around your buyer's real problems. Nothing goes out until you sign off.</p></div>
+      <div class="spec"><span class="mono">LINKEDIN</span><h4>Optional LinkedIn Drafts</h4><p>Ready-to-send LinkedIn messages for you or a team member to send from your own account.</p></div>
+      <div class="spec"><span class="mono">REPLIES</span><h4>Reply Handling & Booking</h4><p>We answer replies and book interested prospects straight into your calendar through your scheduling link.</p></div>
+      <div class="spec"><span class="mono">DELIVERABILITY</span><h4>Your Main Domain Stays Safe</h4><p>Outreach runs on a separate domain you own, so your company's main email is never put at risk.</p></div>
+      <div class="spec"><span class="mono">OWNERSHIP</span><h4>You Keep Everything</h4><p>All research, contact lists and messages belong to you, whether or not you continue after the pilot.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-paper">
+  <div class="wrap grid-2">
+    <div class="rv">
+      <span class="kicker mono"><span class="tick"></span>04 — Qualified Meeting</span>
+      <h2 class="title" style="margin-top:1.2rem">What counts, <em>in writing.</em></h2>
+      <p style="color:var(--mut);margin-top:1.2rem;max-width:46ch">A meeting counts toward the target only when all four are true. The morning after each meeting, you get a one-click email to confirm it.</p>
+    </div>
+    <div class="qual rv rv-d1">
+      <div>The meeting was actually held. Cancelled or missed meetings don't count.</div>
+      <div>It was with a decision-maker or direct influencer for what you sell.</div>
+      <div>The company fits the profile we agreed on before the pilot started.</div>
+      <div>The prospect knew the meeting was about your company and agreed to it.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>05 — Pricing</span>
+        <h2 class="title" style="margin-top:1.2rem">Simple, fixed, <em>no long contract.</em></h2>
+      </div>
+    </div>
+    <div class="plans rv">
+      <div class="plan">
+        <span class="mono">OUTBOUND PIPELINE PILOT</span>
+        <div class="price">$2,000 <small>one-time · 30 days</small></div>
+        <ul>
+          <li>2 free sample leads before you commit</li>
+          <li>50–100 hand-researched accounts</li>
+          <li>Email sequence written for your approval</li>
+          <li>Reply handling and calendar booking</li>
+          <li>Target: 2–4 qualified meetings</li>
+          <li>Weekly written updates</li>
+        </ul>
+        <a href="mailto:info@pchakconsulting.com?subject=Free%20sample%20leads%20request&body=Company%20and%20website%3A%0AWhat%20you%20sell%3A%0AWho%20you%20sell%20to%20(industry%2C%20company%20size%2C%20region)%3A%0AJob%20titles%20you%20want%20meetings%20with%3A%0AAny%20companies%20or%20sectors%20to%20exclude%3A" class="btn btn-solid" style="align-self:flex-start;margin-top:auto"><span>Start With Free Samples</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+      <div class="plan">
+        <span class="mono">GROWTH RETAINER · AFTER THE PILOT</span>
+        <div class="price">$2,750 <small>per month · month-to-month</small></div>
+        <ul>
+          <li>150–200 new researched accounts a month</li>
+          <li>Up to 3 contacts per account</li>
+          <li>LinkedIn drafts for you plus one team member</li>
+          <li>Two message tests a month</li>
+          <li>Event and trade-show campaigns</li>
+          <li>Monthly written review with recommendations</li>
+        </ul>
+        <span class="mono" style="color:var(--mut);margin-top:auto">Cancel with 30 days' notice</span>
+      </div>
+    </div>
+    <p class="fine rv">The pilot fee is paid in full before setup begins. Sending costs (separate domain, inboxes and sending tool, typically about $50–100 a month) are paid directly by you, so you own the accounts. The meeting count is a target, not a guarantee, and the fee does not depend on the number of meetings. All outreach follows CAN-SPAM: it identifies your company, includes a physical address and an unsubscribe option, and honors opt-outs.</p>
+  </div>
+</section>
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="kicker mono"><span class="tick"></span>06 — Questions</span>
+        <h2 class="title" style="margin-top:1.2rem">Before you <em>decide.</em></h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">01</span>What do I need to send for the free sample leads?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Your website, what you sell, who you sell to (industry, company size, region), the job titles you want meetings with, and anyone to exclude. The "Get 2 Free Sample Leads" button opens an email with these questions already filled in. There's no obligation.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">02</span>Do you guarantee meetings?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>No. Results depend on your market, your offer and timing, and anyone who guarantees meetings is usually counting low-quality ones. We commit to the work in writing, define exactly what a qualified meeting is, and report honestly every week. The free samples let you judge the quality before paying.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">03</span>Who writes the messages, and will they sound like spam?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>We write them; you approve every word before anything is sent. Each message is short and tied to a real reason the account should care now. You are responsible for the accuracy of claims about your own product.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">04</span>Will this hurt my company's email reputation?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Outreach is sent from a separate domain and inboxes that you own and pay for directly, warmed up before sending starts. Your main company domain is never used for cold outreach.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">05</span>How soon does it start?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>Sample leads usually arrive within a few business days. Setup, including domain warm-up, takes about two weeks after signing, and the 30-day pilot starts on the first day emails are sent.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head"><h3><span class="mono">06</span>Which industries do you work with?</h3><span class="ax"></span></button>
+        <div class="acc-body"><div class="acc-body-in"><p>B2B companies selling to defined business buyers, including software, industrial, manufacturing, safety and professional services. If your buyer can be named by industry, size and title, we can research them.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="big-cta sec-dark2">
+  <div class="orbit"></div>
+  <div class="wrap">
+    <span class="mono rv">See the quality first</span>
+    <h2 data-split>Two real leads, free. <em>Then decide.</em></h2>
+    <div class="actions rv rv-d2">
+      <a href="mailto:info@pchakconsulting.com?subject=Free%20sample%20leads%20request&body=Company%20and%20website%3A%0AWhat%20you%20sell%3A%0AWho%20you%20sell%20to%20(industry%2C%20company%20size%2C%20region)%3A%0AJob%20titles%20you%20want%20meetings%20with%3A%0AAny%20companies%20or%20sectors%20to%20exclude%3A" class="btn btn-solid"><span>Get 2 Free Sample Leads</span><svg class="arr" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="contact.html" class="btn btn-ghost"><span>Contact Us</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big-word">P CHAK CONSULTING</div>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" class="brand">
+        <img src="assets/mark.png" alt="" width="34" height="34">
+        <span><span class="brand-name">P CHAK CONSULTING</span><span class="brand-sub">Unlocking New Possibilities</span></span>
+      </a>
+      <p>Mission-critical technology, engineering, and fluid-control solutions for government and commercial clients nationwide.</p>
+      <div class="foot-ids"><span>UEI MRNLCHP6N8V5</span><span>CAGE 9NWB7</span></div>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Company</span>
+      <a href="about.html">About Us</a>
+      <a href="quality.html">Quality Assurance</a>
+      <a href="contact.html#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Capabilities</span>
+      <a href="cybersecurity.html">Cybersecurity</a>
+      <a href="it-solutions.html">IT Solutions</a>
+      <a href="defense.html">Defense & Aerospace</a>
+      <a href="fluid-control.html">Fluid Control Products</a>
+      <a href="finance-data.html">Finance Data &amp; Dashboards</a>
+    </div>
+    <div class="foot-col">
+      <span class="mono">Contracting</span>
+      <a href="contracting.html">Doing Business With Us</a>
+      <a href="contracting.html#naics">NAICS Coverage</a>
+      <a href="contracting.html#pastperf">Past Performance</a>
+      <a href="assets/PCHAK-Capability-Statement.pdf" download>Capability Statement</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="year">2026</span> P CHAK CONSULTING LLC — All Rights Reserved</span>
+    <span>UEI MRNLCHP6N8V5 · CAGE 9NWB7</span>
+    <span>Johns Creek · Georgia · USA</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=8"></script>
+<script src="assets/heroviz.js?v=1" defer></script>
+</body>
+</html>
